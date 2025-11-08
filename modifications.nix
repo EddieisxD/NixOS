@@ -1,6 +1,12 @@
 { config, pkgs, lib, ... }: {
 
   # ──────────────────────────────────────────────────────────────
+  # Dynamic Library Linking
+  # ──────────────────────────────────────────────────────────────
+  programs.nix-ld.enable = true;
+
+
+  # ──────────────────────────────────────────────────────────────
   # Network Packet Filtering
   # ──────────────────────────────────────────────────────────────
 
@@ -100,7 +106,8 @@
 
     # Container stack
     podman docker 
-    incus distrobox
+    incus
+    distrobox
 
     # App distribution
     flatpak
@@ -185,6 +192,8 @@
   # ──────────────────────────────────────────────────────────────
   # Remove unwanted GNOME apps (if using GNOME)
   environment.gnome.excludePackages = with pkgs; [
+    xterm
+    geary
     gnome-tour
     yelp
     gnome-contacts
