@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }: {
 
+  imports = [
+    ./gpu-nvidia.nix
+  ];
+
   # ──────────────────────────────────────────────────────────────
   # Dynamic Library Linking
   # ──────────────────────────────────────────────────────────────
@@ -31,14 +35,14 @@
     xwayland.enable = true; # Xwayland can be disabled.
   };
 
-  # ─────────────────────────────────────────────────────────────
-  # Nvidia Drivers
-  # ─────────────────────────────────────────────────────────────
-
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;  # open source drives form Nvidia
-  hardware.nvidia-container-toolkit.enable = true;
+  # # ─────────────────────────────────────────────────────────────
+  # # Nvidia Drivers
+  # # ─────────────────────────────────────────────────────────────
+  #
+  # hardware.graphics.enable = true;
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.nvidia.open = true;  # open source drives form Nvidia
+  # hardware.nvidia-container-toolkit.enable = true;
 
 
   # ─────────────────────────────────────────────────────────────
