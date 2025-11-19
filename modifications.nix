@@ -95,6 +95,7 @@
     kitty
     btrbk
     remmina
+    appimage-run
 
     # Niri
     mako # Wayland notification daemon
