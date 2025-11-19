@@ -89,8 +89,6 @@
     curl
     btop
     nvtopPackages.v3d
-    unzip
-    zip
     file
     which
     tree 
