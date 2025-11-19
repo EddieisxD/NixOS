@@ -94,6 +94,7 @@
     tree 
     kitty
     btrbk
+    reminna
 
     # Niri
     mako # Wayland notification daemon
