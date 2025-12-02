@@ -103,6 +103,7 @@
     zoxide
     fd
     fzf
+    bat
     wget
     curl
     btop
