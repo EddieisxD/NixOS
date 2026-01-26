@@ -10,7 +10,7 @@
   # ──────────────────────────────────────────────────────────────
   # Dynamic Library Linking
   # ──────────────────────────────────────────────────────────────
-  programs.nix-ld.enable = false;
+  programs.nix-ld.enable = true;
   
 
   # ──────────────────────────────────────────────────────────────
@@ -26,7 +26,7 @@
   # ──────────────────────────────────────────────────────────────
 
   networking.nftables.enable = lib.mkDefault true;
-  networking.firewall.trustedInterfaces = [ "incusbr0" ];
+  networking.firewall.trustedInterfaces = [ "incusbr0" "virbr0" ];
 
  
   # ─────────────────────────────────────────────────────────────
@@ -97,7 +97,7 @@
     distrobox
     devbox
     nvidia-container-toolkit
-
+    dnsmasq
     home-manager
 
     # App distribution
@@ -142,6 +142,7 @@
       "podman"
       "docker"
       "incus-admin"
+      "libvirtd"
     ];
     shell = pkgs.zsh;  # explicitly set your shell here
   };
