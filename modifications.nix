@@ -144,10 +144,11 @@
       "incus-admin"
       "libvirtd"
     ];
-    shell = pkgs.zsh;  # explicitly set your shell here
+    shell = pkgs.fish;  # explicitly set your shell here
   };
 
   programs.zsh.enable = true;  # ensure zsh is available system-wide
+  programs.fish.enable = true;  # ensure zsh is available system-wide
 
   # ──────────────────────────────────────────────────────────────
   #  Flatpak (App Distribution)
