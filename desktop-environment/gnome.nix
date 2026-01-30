@@ -5,7 +5,7 @@
     databases = [{
       settings = {
         "org/gnome/mutter" = {
-          experimental-features = ["scale-monitor-framebuffer" "xwayland-native-scaling"];
+          experimental-features = ["scale-monitor-framebuffer" ]; # "xwayland-native-scaling"
         };
         # add more schemas/keys as needed
       };
