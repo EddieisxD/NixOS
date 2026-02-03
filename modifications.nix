@@ -1,17 +1,23 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   imports = [
     ./system/default.nix
     ./storage/databases.nix
     ./desktop-environment/default.nix
     ./virtualisation/default.nix
+    ./appimage.nix
   ];
 
   # ──────────────────────────────────────────────────────────────
   # Dynamic Library Linking
   # ──────────────────────────────────────────────────────────────
   programs.nix-ld.enable = true;
-  
 
   # ──────────────────────────────────────────────────────────────
   # Steam
@@ -20,32 +26,32 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
-
   # ──────────────────────────────────────────────────────────────
   # Network Packet Filtering
   # ──────────────────────────────────────────────────────────────
 
   networking.nftables.enable = lib.mkDefault true;
-  networking.firewall.trustedInterfaces = [ "incusbr0" "virbr0" ];
+  networking.firewall.trustedInterfaces = [
+    "incusbr0"
+    "virbr0"
+  ];
 
- 
   # ─────────────────────────────────────────────────────────────
   # Niri Window Manager
   # ─────────────────────────────────────────────────────────────
 
-
   # ─────────────────────────────────────────────────────────────
-  # Swapfile 
+  # Swapfile
   # ─────────────────────────────────────────────────────────────
 
-  # swapDevices = [{ 
-  #   device = "/swap/swapfile"; 
-  #   size = 32*1024; # Creates an 32GB swap file 
+  # swapDevices = [{
+  #   device = "/swap/swapfile";
+  #   size = 32*1024; # Creates an 32GB swap file
   # }];
 
   # boot.kernel.sysctl = {
-    # This is between 0 (no swap until absolutely necessay) to 100 (swap as much as you can), usually the default is 60.
-  #   "vm.swappiness" = 15;  
+  # This is between 0 (no swap until absolutely necessay) to 100 (swap as much as you can), usually the default is 60.
+  #   "vm.swappiness" = 15;
   # };
 
   # zramSwap = {
@@ -69,7 +75,7 @@
   # ──────────────────────────────────────────────────────────────
   environment.systemPackages = with pkgs; [
     # CLI essentials
-    neovim 
+    neovim
     git
     ripgrep
     zoxide
@@ -82,17 +88,16 @@
     nvtopPackages.v3d
     file
     which
-    tree 
+    tree
     kitty
     btrbk
     remmina
     appimage-run
     ptyxis
 
-
     # Container stack
-    podman 
-    docker 
+    podman
+    docker
     incus
     distrobox
     devbox
@@ -110,13 +115,19 @@
 
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
       # Safety and reproducibility settings
-      warn-dirty = false;              # don’t nag on uncommitted files
-      auto-optimise-store = true;      # deduplicate identical files in /nix/store
-      sandbox = true;                  # ensure pure builds
-      trusted-users = [ "root" "addy" ];  # allow you to use nix without sudo
+      warn-dirty = false; # don’t nag on uncommitted files
+      auto-optimise-store = true; # deduplicate identical files in /nix/store
+      sandbox = true; # ensure pure builds
+      trusted-users = [
+        "root"
+        "addy"
+      ]; # allow you to use nix without sudo
     };
     gc = {
       automatic = true;
@@ -129,7 +140,6 @@
   #  Containerization Setup (Podman, Docker, LXD)
   # ──────────────────────────────────────────────────────────────
 
-
   # ──────────────────────────────────────────────────────────────
   #  User Access and Permissions
   # ──────────────────────────────────────────────────────────────
@@ -137,18 +147,18 @@
     isNormalUser = true;
     description = "Addy";
     extraGroups = [
-      "wheel"   # sudo access
+      "wheel" # sudo access
       "networkmanager"
       "podman"
       "docker"
       "incus-admin"
       "libvirtd"
     ];
-    shell = pkgs.fish;  # explicitly set your shell here
+    shell = pkgs.fish; # explicitly set your shell here
   };
 
-  programs.zsh.enable = true;  # ensure zsh is available system-wide
-  programs.fish.enable = true;  # ensure zsh is available system-wide
+  programs.zsh.enable = true; # ensure zsh is available system-wide
+  programs.fish.enable = true; # ensure zsh is available system-wide
 
   # ──────────────────────────────────────────────────────────────
   #  Flatpak (App Distribution)
