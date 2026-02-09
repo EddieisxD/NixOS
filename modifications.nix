@@ -11,30 +11,48 @@
     ./storage/databases.nix
     ./desktop-environment/default.nix
     ./virtualisation/default.nix
-    ./appimage.nix
+    ./distroagnostic_package_management.nix
   ];
 
   # ──────────────────────────────────────────────────────────────
   # Dynamic Library Linking
   # ──────────────────────────────────────────────────────────────
-  programs.nix-ld.enable = true;
+  programs.nix-ld.enable = false;
 
   # ──────────────────────────────────────────────────────────────
-  # Steam
+  # Gaming
   # ──────────────────────────────────────────────────────────────
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
+  # powerManagement.cpuFreqGovernor = "performance";
+  services.power-profiles-daemon.enable = false;
+
+  services.tailscale.enable = true;
+
+  # Cosmic Desktop
+
+  # Razer
+  hardware.openrazer = {
+    enable = true;
+    users = [ "addy" ];
+  };
 
   # ──────────────────────────────────────────────────────────────
   # Network Packet Filtering
   # ──────────────────────────────────────────────────────────────
 
   networking.nftables.enable = lib.mkDefault true;
-  networking.firewall.trustedInterfaces = [
-    "incusbr0"
-    "virbr0"
-  ];
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 55000 ];
+    allowedUDPPorts = [ 55000 ];
+    trustedInterfaces = [
+      "incusbr0"
+        "virbr0"
+    ];
+  };
 
   # ─────────────────────────────────────────────────────────────
   # Niri Window Manager
@@ -100,13 +118,11 @@
     docker
     incus
     distrobox
+    nixos-container
     devbox
     nvidia-container-toolkit
     dnsmasq
     home-manager
-
-    # App distribution
-    flatpak
   ];
 
   # ──────────────────────────────────────────────────────────────
@@ -122,7 +138,7 @@
 
       # Safety and reproducibility settings
       warn-dirty = false; # don’t nag on uncommitted files
-      auto-optimise-store = true; # deduplicate identical files in /nix/store
+      auto-optimise-store = false; # deduplicate identical files in /nix/store
       sandbox = true; # ensure pure builds
       trusted-users = [
         "root"
@@ -153,6 +169,8 @@
       "docker"
       "incus-admin"
       "libvirtd"
+      "render" "video"
+      "gamemode"
     ];
     shell = pkgs.fish; # explicitly set your shell here
   };
@@ -160,10 +178,6 @@
   programs.zsh.enable = true; # ensure zsh is available system-wide
   programs.fish.enable = true; # ensure zsh is available system-wide
 
-  # ──────────────────────────────────────────────────────────────
-  #  Flatpak (App Distribution)
-  # ──────────────────────────────────────────────────────────────
-  services.flatpak.enable = true;
 
   # ──────────────────────────────────────────────────────────────
   #  Optional Cleanup and Quality-of-Life

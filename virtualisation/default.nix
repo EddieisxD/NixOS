@@ -1,4 +1,5 @@
 {pkgs, ... }: {
+  
   programs.virt-manager.enable = true;
 
   virtualisation = {
@@ -8,6 +9,12 @@
       enable = true;
       qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
     };
+
+    # virtualbox.host = {
+    #   enable = true;
+    #   enableKvm = true;
+    #   addNetworkInterface = false;
+    # };
 
     podman = {
       enable = true;
