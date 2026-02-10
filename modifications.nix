@@ -103,7 +103,8 @@
     wget
     curl
     btop
-    nvtopPackages.v3d
+    eza
+    tldr
     file
     which
     tree
@@ -121,8 +122,22 @@
     nixos-container
     devbox
     nvidia-container-toolkit
+
+    # more packages
     dnsmasq
+    wireshark nmap
     home-manager
+    devenv
+    guix
+    direnv
+    stow
+    waypipe
+    steam-run
+    bazaar
+    gearlever
+    mise
+    arion
+    niv
   ];
 
   # ──────────────────────────────────────────────────────────────
