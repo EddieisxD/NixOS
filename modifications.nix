@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -108,12 +107,26 @@
     file
     which
     tree
+    otree
+    yq
     kitty
     btrbk
-    remmina
     appimage-run
     ptyxis
+    direnv
+    home-manager
+    devenv
+    guix
+    stow
+    mise
+    arion
+    niv
 
+    # Hardware utils
+    pciutils
+    hwloc
+    libva-utils
+    
     # Container stack
     podman
     docker
@@ -126,18 +139,11 @@
     # more packages
     dnsmasq
     wireshark nmap
-    home-manager
-    devenv
-    guix
-    direnv
-    stow
+    remmina
     waypipe
     steam-run
     bazaar
     gearlever
-    mise
-    arion
-    niv
   ];
 
   # ──────────────────────────────────────────────────────────────
@@ -166,6 +172,11 @@
       options = "--delete-older-than 14d";
     };
   };
+  
+  services.guix = {
+    enable = true;
+    group = "guixbuild";
+  };
 
   # ──────────────────────────────────────────────────────────────
   #  Containerization Setup (Podman, Docker, LXD)
@@ -186,6 +197,7 @@
       "libvirtd"
       "render" "video"
       "gamemode"
+      "guixbuild"
     ];
     shell = pkgs.fish; # explicitly set your shell here
   };
