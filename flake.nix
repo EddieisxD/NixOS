@@ -1,10 +1,10 @@
 {
   description = "Pinning my NixOS configuration";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-stable.url = "github:nixos/nixpkgs/nixos-25.11";
   };
-  outputs = {nixpkgs, nixos-unstable, ... }: 
+  outputs = { nixpkgs, nixos-stable, ... }: 
     let
       system = "x86_64-linux";
     in {

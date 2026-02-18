@@ -18,10 +18,11 @@
 
     podman = {
       enable = true;
+
       dockerCompat = false;                 # provides /run/current-system/sw/bin/docker
-        defaultNetwork.settings.dns_enabled = true;  # fix DNS in containers
-        autoPrune.enable = true;             # automatically remove stopped containers/images
-        extraPackages = with pkgs; [ slirp4netns fuse-overlayfs ];  # explicit rootless networking helpers
+      defaultNetwork.settings.dns_enabled = true;  # fix DNS in containers
+      autoPrune.enable = true;             # automatically remove stopped containers/images
+      extraPackages = with pkgs; [ slirp4netns fuse-overlayfs ];  # explicit rootless networking helpers
     };
 
     docker = {
@@ -33,6 +34,10 @@
               cdi = true;
             };
         };
+    };
+
+    waydroid = {
+      enable = true;
     };
 
 

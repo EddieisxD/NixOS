@@ -70,12 +70,6 @@
   # This is between 0 (no swap until absolutely necessay) to 100 (swap as much as you can), usually the default is 60.
   #   "vm.swappiness" = 15;
   # };
-
-  # zramSwap = {
-  #   enable = true;
-  #   memoryPercent = 50;  # Use half your RAM for compressed swap
-  #   priority = 100;
-  # };
   #
   # # Step 3: Enable zswap
   # boot.kernelParams = [
@@ -83,9 +77,16 @@
   #   "zswap.compressor=zstd"
   #   "zswap.max_pool_percent=25"
   # ];
-  #
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 60;  # Use half your RAM for compressed swap
+    priority = 100;
+    algorithm = "zstd";
+  };
   # # Step 4: Enable dynamic swapspace (disk-based fallback)
-  # services.swapspace.enable = true;
+  services.swapspace.enable = true;
+  services.earlyoom.enable = true;
 
   # ──────────────────────────────────────────────────────────────
   #  Base System Packages
@@ -120,7 +121,7 @@
     stow
     mise
     arion
-    niv
+    niv 
 
     # Hardware utils
     pciutils
@@ -131,6 +132,7 @@
     podman
     docker
     incus
+    waydroid
     distrobox
     nixos-container
     devbox
@@ -169,7 +171,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 14d";
+      options = "--delete-older-than 10d";
     };
   };
   
@@ -205,6 +207,33 @@
   programs.zsh.enable = true; # ensure zsh is available system-wide
   programs.fish.enable = true; # ensure zsh is available system-wide
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+
+      # Core coding fonts
+      jetbrains-mono
+      fira-code
+      fira-code-symbols
+      iosevka
+      hasklig
+
+      cascadia-code
+      maple-mono.NF
+
+      # Nerd patched versions (icons + powerline symbols)
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.iosevka
+      nerd-fonts.hasklug
+
+      # Optional UI fallback
+      liberation_ttf
+    ];
+  };
 
   # ──────────────────────────────────────────────────────────────
   #  Optional Cleanup and Quality-of-Life
