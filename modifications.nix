@@ -172,6 +172,14 @@
 	"devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
 
+      # 2. This tells Nix: "If it's not in the cache, DON'T build it."
+      # Note: This can be annoying if a tiny wrapper needs to be built.
+      # Most users prefer passing '--no-build' on the command line instead.
+      # allow-import-from-derivation = false; 
+
+      # 3. Ensure Nix always tries the cache first
+      builders-use-substitutes = true;
+
       # Safety and reproducibility settings
       warn-dirty = false; # don’t nag on uncommitted files
       auto-optimise-store = true; # deduplicate identical files in /nix/store
