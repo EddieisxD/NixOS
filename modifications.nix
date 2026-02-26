@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 {
@@ -17,7 +18,6 @@
   # Verifies authenticity of the programs being downloaded
   programs.gnupg.agent = {
     enable = true;
-    enableSSHSupport = true;
   };
 
   # ──────────────────────────────────────────────────────────────
@@ -54,31 +54,6 @@
         "virbr0"
     ];
   };
-
-  # ─────────────────────────────────────────────────────────────
-  # Niri Window Manager
-  # ─────────────────────────────────────────────────────────────
-
-  # ─────────────────────────────────────────────────────────────
-  # Swapfile
-  # ─────────────────────────────────────────────────────────────
-
-  # swapDevices = [{
-  #   device = "/swap/swapfile";
-  #   size = 32*1024; # Creates an 32GB swap file
-  # }];
-
-  # boot.kernel.sysctl = {
-  # This is between 0 (no swap until absolutely necessay) to 100 (swap as much as you can), usually the default is 60.
-  #   "vm.swappiness" = 15;
-  # };
-  #
-  # # Step 3: Enable zswap
-  # boot.kernelParams = [
-  #   "zswap.enabled=1"
-  #   "zswap.compressor=zstd"
-  #   "zswap.max_pool_percent=25"
-  # ];
 
   zramSwap = {
     enable = true;
@@ -122,8 +97,8 @@
     devenv
     guix
     stow
-    mise
     arion
+    comma
     niv
 
     # Hardware utils
@@ -199,8 +174,13 @@
   };
   
   services.guix = {
-    enable = false;
+    enable = true;
+    package = pkgs.guix;
     group = "guixbuild";
+    gc = {
+      enable = true;
+      dates = "weekly";
+    };
   };
 
   # ──────────────────────────────────────────────────────────────
