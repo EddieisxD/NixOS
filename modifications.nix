@@ -7,28 +7,30 @@
 
   imports = [
     ./system/default.nix
-    ./storage/databases.nix
+    # ./storage/databases.nix
     ./desktop-environment/default.nix
     ./virtualisation/default.nix
     ./distroagnostic_package_management.nix
   ];
 
-  # ──────────────────────────────────────────────────────────────
-  # Dynamic Library Linking
-  # ──────────────────────────────────────────────────────────────
-  programs.nix-ld.enable = false;
+  
+  # Verifies authenticity of the programs being downloaded
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # ──────────────────────────────────────────────────────────────
   # Gaming
   # ──────────────────────────────────────────────────────────────
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
-  programs.gamemode.enable = true;
+  # programs.gamemode.enable = true;
   programs.gamescope.enable = true;
   # powerManagement.cpuFreqGovernor = "performance";
   services.power-profiles-daemon.enable = false;
 
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   # Cosmic Desktop
 
@@ -161,15 +163,15 @@
       ];
 
       substituters = [
-	"https://cache.nixos.org"
-	"https://nix-community.cachix.org"
-	"https://devenv.cachix.org"
+	      "https://cache.nixos.org"
+	      "https://nix-community.cachix.org"
+	      "https://devenv.cachix.org"
       ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-	"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-	"devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+	      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+	      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
 
       # 2. This tells Nix: "If it's not in the cache, DON'T build it."
@@ -197,7 +199,7 @@
   };
   
   services.guix = {
-    enable = true;
+    enable = false;
     group = "guixbuild";
   };
 
