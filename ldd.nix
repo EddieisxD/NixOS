@@ -3,14 +3,14 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  services.envfs.enable = true;
+  services.envfs.enable = false;
   
 
   # Automatically creates a loader in /lib/* to avoid patching stuff
   # To disable it temporarily use
   # unset NIX_LD
   programs.nix-ld = {
-    enable = true;
+    enable = false;
     libraries = with pkgs; [
       # List by default
       zlib

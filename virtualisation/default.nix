@@ -44,6 +44,7 @@
     incus = {
       enable = true;
       ui.enable = true; # optional web ui
+      pkg = pkgs.incus;
     };
 
   };

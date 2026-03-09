@@ -1,7 +1,7 @@
 {
   pkgs,
+  nixpkgs,
   lib,
-  config,
   ...
 }:
 {
@@ -12,6 +12,7 @@
     ./desktop-environment/default.nix
     ./virtualisation/default.nix
     ./distroagnostic_package_management.nix
+    # ./multiple_monitors.nix
   ];
 
   
@@ -95,7 +96,6 @@
     cachix
     home-manager
     devenv
-    guix
     stow
     arion
     comma
@@ -123,7 +123,6 @@
     waypipe
     steam-run
     bazaar
-    gearlever
   ];
 
   # ──────────────────────────────────────────────────────────────
@@ -131,7 +130,10 @@
   # ──────────────────────────────────────────────────────────────
 
   nix = {
+
+    registry.nixpkgs.flake = nixpkgs;
     settings = {
+
       experimental-features = [
         "nix-command"
         "flakes"
@@ -156,10 +158,13 @@
 
       # 3. Ensure Nix always tries the cache first
       builders-use-substitutes = true;
+      keep-outputs = true;
+      keep-derivations = true;
 
+      cores = 0;
       # Safety and reproducibility settings
       warn-dirty = false; # don’t nag on uncommitted files
-      auto-optimise-store = true; # deduplicate identical files in /nix/store
+      auto-optimise-store = false; # deduplicate identical files in /nix/store
       sandbox = true; # ensure pure builds
       trusted-users = [
         "root"
@@ -173,15 +178,6 @@
     };
   };
   
-  services.guix = {
-    enable = true;
-    package = pkgs.guix;
-    group = "guixbuild";
-    gc = {
-      enable = true;
-      dates = "weekly";
-    };
-  };
 
   # ──────────────────────────────────────────────────────────────
   #  Containerization Setup (Podman, Docker, LXD)
@@ -190,6 +186,14 @@
   # ──────────────────────────────────────────────────────────────
   #  User Access and Permissions
   # ──────────────────────────────────────────────────────────────
+  users.users.root = { 
+    subUidRanges = [
+      { startUid = 1000; count = 1; }
+    ];
+    subGidRanges = [
+      { startGid = 1000; count = 1; }
+    ];
+  };
   users.users.addy = {
     isNormalUser = true;
     description = "Addy";
