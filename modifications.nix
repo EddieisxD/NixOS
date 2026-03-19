@@ -26,11 +26,11 @@
   # Gaming
   # ──────────────────────────────────────────────────────────────
   programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
+  # programs.steam.gamescopeSession.enable = true;
   # programs.gamemode.enable = true;
-  programs.gamescope.enable = true;
+  # programs.gamescope.enable = true;
   # powerManagement.cpuFreqGovernor = "performance";
-  services.power-profiles-daemon.enable = false;
+  # services.power-profiles-daemon.enable = false;
 
   services.tailscale.enable = false;
 

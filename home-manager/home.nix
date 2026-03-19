@@ -1,4 +1,4 @@
-{ config, pkgs, ... }@inputs:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -13,6 +13,7 @@
   # manage.
   home.username = "addy";
   home.homeDirectory = "/home/addy";
+
 
   nixpkgs.config.allowUnfree = true;
   # programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
