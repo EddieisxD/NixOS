@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -27,6 +27,12 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # home manager
+  home-manager = {
+    users.addy = import ./home-manager/home.nix;
+    extraSpecialArgs = { inherit inputs; };
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";

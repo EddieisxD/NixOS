@@ -9,6 +9,32 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
   };
   outputs = { nixpkgs, ... }@inputs:
     let
@@ -17,12 +43,14 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+	  inputs.home-manager.nixosModules.home-manager
+	  inputs.nix-index-database.nixosModules.default
           inputs.disko.nixosModules.disko
           ./disko/disko.nix
           ./configuration.nix
         ];
         specialArgs = {
-          inherit nixpkgs;
+          inherit inputs;
         };
       };
     };
