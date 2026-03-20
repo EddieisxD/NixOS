@@ -74,6 +74,6 @@
     };
 
     polarity = "dark";
-    image = ./tsgrtjdmbwcf1.png;
+    image = ./117497448_p0.jpg;
   };
 }
