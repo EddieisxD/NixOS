@@ -36,6 +36,7 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
+    backupCommand = "rm -f $BACKUPFILE";
     sharedModules = [
       inputs.stylix.homeManagerModules.stylix
       ./variables.nix

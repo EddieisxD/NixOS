@@ -6,7 +6,7 @@
     enable = true;
     package = pkgs.ghostty;
     settings = {
-      font-size = 14;
+      font-size = 16;
       background-opacity = 0.7;
       background = "#000000";
       window-padding-balance = true;
