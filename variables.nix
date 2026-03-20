@@ -3,6 +3,13 @@
   lib,
   ...
 }: {
-  options = { var = lib.mkOption { type = lib.types.attrs; default = {}; }; };
-  config.var.keyboard = "us";
+  options = { 
+    var = lib.mkOption { 
+      type = lib.types.attrs; 
+      default = {};
+    };
+  };
+  config = {
+    var.keyboardLayout = "us";
+  };
 }

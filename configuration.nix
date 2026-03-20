@@ -38,6 +38,7 @@
     backupFileExtension = "backup";
     sharedModules = [
       inputs.stylix.homeManagerModules.stylix
+      ./variables.nix
     ];
   };
 

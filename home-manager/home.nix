@@ -38,6 +38,7 @@
     pkgs.jujutsu
     pkgs.trash-cli
     pkgs.tldr
+    pkgs.starship
     pkgs.atuin
     pkgs.eza
     pkgs.vscodium
