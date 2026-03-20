@@ -74,9 +74,6 @@
     };
 
     polarity = "dark";
-    image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/nepal.png";
-      sha256 = "sha256-0o2+B3+yA++PCyfNC+VqmaX959aKk3GuD7XpOq3SGcM=";
-    };
+    image = ./tsgrtjdmbwcf1.png;
   };
 }
