@@ -15,6 +15,7 @@
       window-padding-x = 1;
       window-decoration = false;
       gtk-tabs-location = "hidden";
+      confirm-close-surface = false;
     };
   };
 }
