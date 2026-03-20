@@ -1,0 +1,26 @@
+{
+  "editor.fontFamily": "'Haskilg', 'Droid Sans Mono', monospace",
+  "editor.fontLigatures": true,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
+  "files.autoSave": "afterDelay",
+  "git.openRepositoryInParentFolders": "always",
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
+  "workbench.activityBar.location": "top",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.editor.showTabs": "none",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.layoutControl.enabled": false,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.visible": false,
+  "workbench.colorTheme": "Paris",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "terminal.integrated.stickyScroll.enabled": false
+}

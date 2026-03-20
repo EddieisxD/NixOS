@@ -35,6 +35,7 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     stylix.url = "github:danth/stylix";
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
   outputs = { nixpkgs, ... }@inputs:
     let

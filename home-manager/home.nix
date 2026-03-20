@@ -8,6 +8,9 @@
     inputs.nix4nvchad.homeManagerModule
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    ./config/ghostty.nix
+    ./config/vscodium.nix
+    ./config/github_auth.nix
     ./caelestia-shell
     ./hyprland
     ./mime
@@ -39,6 +42,11 @@
     pkgs.trash-cli
     pkgs.tldr
     pkgs.starship
+    pkgs.sesh
+    pkgs.zellij
+    pkgs.magic-wormhole
+    pkgs.croc
+    pkgs.impala
     pkgs.atuin
     pkgs.eza
     pkgs.vscodium
@@ -106,6 +114,12 @@
     hm-activation = true;
   };
 
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
