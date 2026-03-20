@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./modifications.nix
       ./hardware-configuration.nix
+      ./variables.nix
     ];
 
   # Bootloader.
@@ -31,8 +32,13 @@
   # home manager
   home-manager = {
     users.addy = import ./home-manager/home.nix;
+    useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
+    sharedModules = [
+      inputs.stylix.homeManagerModules.stylix
+    ];
   };
 
   # Set your time zone.

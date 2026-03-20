@@ -34,7 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-
+    stylix.url = "github:danth/stylix";
   };
   outputs = { nixpkgs, ... }@inputs:
     let
@@ -43,8 +43,9 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-	  inputs.home-manager.nixosModules.home-manager
-	  inputs.nix-index-database.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nix-index-database.nixosModules.default
+          inputs.stylix.nixosModules.stylix
           inputs.disko.nixosModules.disko
           ./disko/disko.nix
           ./configuration.nix
