@@ -13,7 +13,7 @@
     ./virtualisation/default.nix
     ./distroagnostic_package_management.nix
     # ./multiple_monitors.nix
-    ./nixos-container.nix
+    # ./nixos-container.nix
   ];
 
   
