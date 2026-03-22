@@ -74,6 +74,6 @@
     };
 
     polarity = "dark";
-    image = ./117497448_p0.jpg;
+    image = ./Lady.png;
   };
 }

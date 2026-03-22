@@ -110,7 +110,9 @@
   programs.nvchad = {
     enable = true;
     backup = false;
-    extraPackages = with pkgs; [ ];
+    extraPackages = with pkgs; [ tree-sitter ];
+    extraPlugins = builtins.readFile ./dotfiles/neovim/plugins.lua;
+    extraConfig = builtins.readFile ./dotfiles/neovim/options.lua;
     hm-activation = true;
   };
 
