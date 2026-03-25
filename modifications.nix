@@ -34,6 +34,14 @@
 
   services.tailscale.enable = false;
 
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     # This "creates" pkgs.xrdb by pointing it to the correct location
+  #     # This satisfies the Home Manager module's internal requirements.
+  #     xrdb = prev.xorg.xrdb;
+  #   })
+  # ];
+
   # Cosmic Desktop
 
   # Razer
@@ -116,6 +124,7 @@
     nixos-container
     devbox
     nvidia-container-toolkit
+    nftables
 
     # more packages
     dnsmasq

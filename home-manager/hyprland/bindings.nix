@@ -160,7 +160,7 @@ in {
 
         # Quick launch
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
-        "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
+        # "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
         "$shiftMod, E, exec, pkill fuzzel || caelestia emoji -p" # Emoji picker
         "$mod, SPACE, global, caelestia:launcher" # Launcher
         "$mod, N, exec, caelestia shell drawers toggle sidebar" # Sidebar (Notifications, quick actions)

@@ -1,6 +1,5 @@
 -- File: dotfiles/neovim/plugins.lua
 return {
-  -- Plugin 1: Render Markdown
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
@@ -17,7 +16,7 @@ return {
       heading = {
         enabled = true,
         sign = true,
-        position = "overlay",
+        position = "inline",
         icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
         signs = { "󰫎 " },
         width = "full",
@@ -29,6 +28,16 @@ return {
         border_virtual = true,
         border_prefix = false,
       },
+      checkbox = {
+        enabled = true,
+        position = "inline",
+        width = "constant",
+        unchecked = { icon = "󰄱 " },
+        checked = { icon = " " },
+        custom = {
+          todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownWarn" },
+        },
+      },
       code = {
         enabled = true,
         sign = true,
@@ -38,13 +47,6 @@ return {
         width = "full",
         left_pad = 2,
         right_pad = 2,
-      },
-      callout = {
-        note = { raw = "[!NOTE]", rendered = "󰋽 Note", highlight = "RenderMarkdownInfo" },
-        tip = { raw = "[!TIP]", rendered = "󰌶 Tip", highlight = "RenderMarkdownSuccess" },
-        important = { raw = "[!IMPORTANT]", rendered = "󰅒 Important", highlight = "RenderMarkdownError" },
-        warning = { raw = "[!WARNING]", rendered = "󰀪 Warning", highlight = "RenderMarkdownWarn" },
-        caution = { raw = "[!CAUTION]", rendered = "󰳦 Caution", highlight = "RenderMarkdownError" },
       },
       dash = {
         enabled = true,
@@ -56,36 +58,25 @@ return {
         left_pad = 0,
         right_pad = 1,
       },
-      checkbox = {
-        enabled = true,
-        unchecked = { icon = "󰄱 " },
-        checked = { icon = " " },
-        custom = {
-          todo = { raw = "[-]", rendered = "󰥔 Pending", highlight = "RenderMarkdownWarn" },
-        },
-      },
       quote = {
         enabled = true,
-        icon = "▋", -- A thick vertical bar
+        icon = "▋",
         highlight = "RenderMarkdownQuote",
       },
-      latex = {
+      pipe_table = {
         enabled = true,
-        converter = "latex2text",
-        highlight = "RenderMarkdownMath",
-      }
+        preset = "round", -- Aesthetic upgrade for tables
+        style = "full",
+      },
     },
-  }, -- Correctly closed render-markdown
+  },
 
-  -- Plugin 2: Obsidian.nvim
   {
     "epwalsh/obsidian.nvim",
     version = "*",
     lazy = true,
     ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       workspaces = {
         {
@@ -93,6 +84,11 @@ return {
           path = "~/Documents/combined_notes/Obsidian/Vanity/",
         }
       },
+    },
+    ui = {
+      enable = true,
+      checkboxs = {},
+      bullets = {}
     },
   },
 }

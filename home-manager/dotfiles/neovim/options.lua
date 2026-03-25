@@ -1,5 +1,3 @@
-vim.opt.conceallevel = 2
-
 -- Obsidian specific mappings
 local opts = { noremap = true, silent = true }
 
@@ -16,3 +14,11 @@ vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "New Note" })
 vim.keymap.set("v", "<leader>ol", "<cmd>ObsidianLink<cr>", { desc = "Link Selection" })
 vim.keymap.set("n", "<leader>op", "<cmd>ObsidianPasteImg<cr>", { desc = "Paste Image" })
 
+----- markdown.nvim 
+
+vim.opt.mousescroll = "ver:1,hor:1"
+vim.opt.list = true
+vim.opt.listchars = "tab:  ,trail: ,extends: ,precedes: "
+
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'

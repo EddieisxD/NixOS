@@ -38,7 +38,7 @@
     backupFileExtension = "backup";
     backupCommand = "rm -f $BACKUPFILE";
     sharedModules = [
-      inputs.stylix.homeManagerModules.stylix
+      inputs.stylix.homeModules.stylix
       ./variables.nix
     ];
   };

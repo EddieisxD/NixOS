@@ -23,7 +23,6 @@
   home.homeDirectory = "/home/addy";
   # nixpkgs.config.allowUnfree = true;
   # programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
-
   stylix.enable = true;
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -33,6 +32,7 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "26.05"; # Please read the comment before changing.
+
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -105,6 +105,7 @@
     pkgs.bitwarden-cli
     # pkgs.wireshark pkgs.nmap
     inputs.antigravity-nix.packages.x86_64-linux.default
+    pkgs.gcc
   ];
 
   programs.nvchad = {
@@ -151,5 +152,5 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  # programs.home-manager.enable = true;
 }

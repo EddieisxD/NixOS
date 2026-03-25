@@ -89,12 +89,13 @@ in {
         "__GL_VRR_ALLOWED,0"
         "DISABLE_QT5_COMPAT,0"
         "DIRENV_LOG_FORMAT,"
-        "WLR_DRM_NO_ATOMIC,1"
-        "WLR_BACKEND,vulkan"
-        "WLR_RENDERER,vulkan"
+        # "WLR_DRM_NO_ATOMIC,1"
+        # "WLR_BACKEND,vulkan"
+        # "WLR_RENDERER,vulkan"
         "WLR_NO_HARDWARE_CURSORS,1"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
+        "WLR_DRM_DEVICES,/dev/dri/card2"
       ];
 
       cursor = {
