@@ -83,37 +83,32 @@
     };
   };
 
+
   specialisation."no-gpu".configuration = {
     system.nixos.tags = [ "no-gpu" ];
 
-    # 1. Force the system to use ONLY the Intel iGPU
+    # 1. Use ONLY Intel iGPU
     services.xserver.videoDrivers = lib.mkForce [ "modesetting" ];
 
-    # 2. Blacklist all NVIDIA modules to prevent initialization
+    # 2. Blacklist NVIDIA from the kernel
     boot.blacklistedKernelModules = lib.mkForce [
       "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" 
       "nvidia_uvm" "nvidia_fb" "i2c_nvidia_gpu"
     ];
 
-    # 3. Clear initrd to prevent the kernel from looking for NVIDIA early in boot
-    boot.initrd.availableKernelModules = lib.mkForce [ ];
+    # 3. Fixed Stage 1 Modules (Disk + Crypto)
+    boot.initrd.availableKernelModules = lib.mkForce [ 
+      "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "vmd" "crc32c" "intel_lpss_pci" 
+    ];
 
-    # 4. Disable the NVIDIA toolkit and PRIME options
+    # 4. Disable NVIDIA-specific tools
     hardware.nvidia-container-toolkit.enable = lib.mkForce false;
 
-    # 5. The "Nuclear Option": Logical PCI Removal
-    # This detects the NVIDIA card and tells the kernel to "unplug" it.
-    # This prevents the hardware from waking up and overheating.
+    # 5. Logical PCI Removal (The heat-stopper)
     services.udev.extraRules = ''
-      # Remove NVIDIA VGA/3D controller
+      # Remove NVIDIA Graphics & Audio
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{remove}="1"
-      
-      # Remove NVIDIA Audio (HDMI)
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{remove}="1"
-      
-      # Remove NVIDIA USB/Type-C controllers if present
-      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{remove}="1"
-      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{remove}="1"
     '';
   };
 }
