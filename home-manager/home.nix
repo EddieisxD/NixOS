@@ -116,6 +116,7 @@
     extraConfig  = builtins.readFile ./dotfiles/neovim/options.lua;
     hm-activation = true;
   };
+  xdg.configFile."nvim/lua/plugin_files".source = ./dotfiles/neovim/plugin_files;
 
   programs.nix-index = {
     enable = true;
