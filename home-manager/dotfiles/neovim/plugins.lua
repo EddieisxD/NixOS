@@ -1,76 +1,46 @@
 -- File: dotfiles/neovim/plugins.lua
 return {
+  -- Plugin 1: Render Markdown (The "Beauty" Engine)
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
     ft = { "markdown", "norg", "rmd", "org" },
     opts = {
       preset = "obsidian",
-      anti_conceal = {
-        enabled = true,
-        ignore = {
-          code_background = true,
-          sign = true,
-        },
-      },
+      acknowledge_conflicts = true, -- Stops warnings about obsidian.nvim
+      anti_conceal = { enabled = true },
+      
+      -- HEADINGS: Clean & Bold
       heading = {
         enabled = true,
-        sign = true,
-        position = "inline",
+        sign = false, -- Cleaner look without double icons
+        position = "inline", 
         icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
-        signs = { "󰫎 " },
         width = "full",
-        left_margin = 0,
-        left_pad = 2,
-        right_pad = 2,
-        min_width = 0,
         border = true,
-        border_virtual = true,
-        border_prefix = false,
       },
+
+      -- CHECKBOXES: This fixes the "endar" issue
       checkbox = {
         enabled = true,
-        position = "inline",
-        width = "constant",
-        unchecked = { icon = "󰄱 " },
-        checked = { icon = " " },
+        position = "inline", -- Inline pushes text, Overlay eats it.
+        unchecked = { icon = "󰄱", highlight = "RenderMarkdownTodo" },
+        checked = { icon = "", highlight = "RenderMarkdownDone" },
         custom = {
-          todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownWarn" },
+          todo = { raw = "[-]", rendered = "󰥔", highlight = "RenderMarkdownWarn" },
         },
       },
-      code = {
-        enabled = true,
-        sign = true,
-        style = "full",
-        position = "left",
-        language_pad = 2,
-        width = "full",
-        left_pad = 2,
-        right_pad = 2,
-      },
-      dash = {
-        enabled = true,
-        icon = "─",
-        width = "full",
-      },
-      bullet = {
-        icons = { "●", "○", "◆", "◇" },
-        left_pad = 0,
-        right_pad = 1,
-      },
-      quote = {
-        enabled = true,
-        icon = "▋",
-        highlight = "RenderMarkdownQuote",
-      },
-      pipe_table = {
-        enabled = true,
-        preset = "round", -- Aesthetic upgrade for tables
-        style = "full",
+
+      -- TABLES & LINKS: Full Aesthetic
+      pipe_table = { preset = "round" },
+      link = {
+        enabled = true, -- render-markdown handles icons
+        wiki = { icon = "󱗘 ", highlight = "RenderMarkdownWiki" },
       },
     },
   },
 
+  -- Plugin 2: Obsidian.nvim (The "Logic" Engine)
   {
     "epwalsh/obsidian.nvim",
     version = "*",
@@ -84,11 +54,20 @@ return {
           path = "~/Documents/combined_notes/Obsidian/Vanity/",
         }
       },
-    },
-    ui = {
-      enable = true,
-      checkboxs = {},
-      bullets = {}
+      -- FIXED: UI table is now correctly INSIDE opts
+      ui = {
+        enable = true, -- Enable for link hiding and embeddings
+        update_debounce = 200,
+        -- SURGICAL FIX: Disable checkboxes/bullets here 
+        -- so they don't fight with render-markdown
+        checkboxes = {}, 
+        bullets = {},
+        -- Keep these for the "Obsidian" look
+        external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+        reference_text = { hl_group = "ObsidianRefText" },
+        highlight_text = { hl_group = "ObsidianHighlightText" },
+        tags = { hl_group = "ObsidianTag" },
+      },
     },
   },
 }

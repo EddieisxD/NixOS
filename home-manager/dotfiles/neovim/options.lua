@@ -21,4 +21,4 @@ vim.opt.list = true
 vim.opt.listchars = "tab:  ,trail: ,extends: ,precedes: "
 
 vim.opt.conceallevel = 2
-vim.opt.concealcursor = 'nc'
+-- vim.opt.concealcursor = 'nc'

@@ -113,7 +113,7 @@
     backup = false;
     extraPackages = with pkgs; [ tree-sitter ];
     extraPlugins = builtins.readFile ./dotfiles/neovim/plugins.lua;
-    extraConfig = builtins.readFile ./dotfiles/neovim/options.lua;
+    extraConfig  = builtins.readFile ./dotfiles/neovim/options.lua;
     hm-activation = true;
   };
 
