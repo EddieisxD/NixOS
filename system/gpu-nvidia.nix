@@ -4,21 +4,6 @@
   hardware.nvidia-container-toolkit.enable = true;
   hardware.intel-gpu-tools.enable = true;
 
-  boot.blacklistedKernelModules = [ "i2c_nvidia_gpu" "nouveau" ];
-  boot.extraModprobeConfig = ''
-    options nvidia NVreg_PreserveVideoMemoryAllocations=1
-    options nvidia NVreg_TemporaryFilePath=/var/tmp
-    '';
-  systemd.tmpfiles.rules = [
-    "d /var/tmp 1777 root root -"
-  ];
-  boot.initrd.availableKernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-  hardware.firmware = with pkgs; [ 
-    # config.boot.kernelPackages.nvidiaPackages.unstable.firmware
-    config.hardware.nvidia.package.firmware
-    # (builtins.storePath "/nix/store/4am114gm89gh6a5rdycwma1w08dzqi2l-nvidia-x11-580.142-6.19.9-firmware")
-  ];
-
 
   # Enable OpenGL
   hardware.graphics = {
