@@ -58,7 +58,6 @@
     pkgs.nerd-fonts.hasklug
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.direnv
-    pkgs.n8n # unfree license
     pkgs.ansible
     pkgs.gh
     pkgs.waypipe
@@ -92,7 +91,6 @@
     pkgs.vesktop
     pkgs.vlc
     pkgs.bazaar
-    pkgs.gearlever
     pkgs.warehouse
     # pkgs.heroic
     (pkgs.heroic.override {

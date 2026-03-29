@@ -33,6 +33,7 @@
   # services.power-profiles-daemon.enable = false;
 
   services.tailscale.enable = false;
+  services.fwupd.enable = true;
 
   # nixpkgs.overlays = [
   #   (final: prev: {
@@ -161,12 +162,6 @@
 	      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
 
-      # 2. This tells Nix: "If it's not in the cache, DON'T build it."
-      # Note: This can be annoying if a tiny wrapper needs to be built.
-      # Most users prefer passing '--no-build' on the command line instead.
-      # allow-import-from-derivation = false; 
-
-      # 3. Ensure Nix always tries the cache first
       builders-use-substitutes = true;
       keep-outputs = true;
       keep-derivations = true;
@@ -178,7 +173,7 @@
       sandbox = true; # ensure pure builds
       trusted-users = [
         "root"
-        "addy"
+        "@wheel"
       ]; # allow you to use nix without sudo
     };
     gc = {

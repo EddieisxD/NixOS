@@ -37,7 +37,7 @@
     };
 
     waydroid = {
-      enable = true;
+      enable = false;
     };
 
 
