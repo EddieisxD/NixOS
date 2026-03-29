@@ -531,7 +531,7 @@
         "nix-index-database": "nix-index-database",
         "nix4nvchad": "nix4nvchad",
         "nixpkgs": [
-          "unstable"
+          "current"
         ],
         "stable": "stable",
         "stylix": "stylix",

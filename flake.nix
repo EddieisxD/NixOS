@@ -4,7 +4,7 @@
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     stable.url   = "github:nixos/nixpkgs/nixos-25.11";
     current.url  = "github:NixOS/nixpkgs?rev=917fec990948658ef1ccd07cef2a1ef060786846";
-    nixpkgs.follows = "unstable";
+    nixpkgs.follows = "current";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
