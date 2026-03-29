@@ -8,7 +8,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   hardware.enableAllFirmware = true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.enableRedistributableFirmware = true;
