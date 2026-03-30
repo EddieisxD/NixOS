@@ -37,7 +37,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.chromium
     pkgs.jujutsu
     pkgs.trash-cli
     pkgs.tldr
@@ -66,13 +65,10 @@
     pkgs.zotero
     pkgs.jabref
     pkgs.steam-run
-    pkgs.megasync
     pkgs.zed-editor
-    pkgs.mise
     pkgs.devenv
     pkgs.arion
     pkgs.niv
-    pkgs.kata-runtime
     pkgs.nixd
     pkgs.nil
     pkgs.anytype
@@ -101,9 +97,7 @@
      })
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
-    # pkgs.wireshark pkgs.nmap
     inputs.antigravity-nix.packages.x86_64-linux.default
-    pkgs.gcc
   ];
 
   programs.nvchad = {
