@@ -11,11 +11,11 @@
     ./config/ghostty.nix
     ./config/vscodium.nix
     ./config/github_auth.nix
-    ./caelestia-shell
-    ./hyprland
-    ./mime
-    ./hyprpaper
-    ./themes/zen.nix
+    # ./caelestia-shell
+    # ./hyprland
+    # ./mime
+    # ./hyprpaper
+    # ./themes/zen.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
