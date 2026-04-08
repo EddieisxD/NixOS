@@ -8,9 +8,10 @@
   boot.loader.systemd-boot.extraEntries = {
     "arch.conf" = ''
       title Arch Linux
+      sort-key 0-arch
       linux /vmlinuz-linux
       initrd /initramfs-linux.img
-      options root=UUID=DD14-E8F1 rootflags=subvol=@archlinux rw
+      options root=UUID=febb7194-77f7-4ca4-a873-280aa4ef29a3 rootflags=subvol=@archlinux rw
       '';
   };
 
