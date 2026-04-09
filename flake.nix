@@ -17,24 +17,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix4nvchad = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    antigravity-nix = {
-      url = "github:jacopone/antigravity-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    stylix.url = "github:danth/stylix";
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
   outputs = { nixpkgs, ... }@inputs:
@@ -46,7 +33,6 @@
         modules = [
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.default
-          inputs.stylix.nixosModules.stylix
           inputs.disko.nixosModules.disko
           ./disko/disko.nix
           ./configuration.nix

@@ -15,7 +15,6 @@
     # ./hyprland
     # ./mime
     # ./hyprpaper
-    ./themes/zen.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -23,7 +22,6 @@
   home.homeDirectory = "/home/addy";
   # nixpkgs.config.allowUnfree = true;
   # programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
-  stylix.enable = true;
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -98,7 +96,6 @@
      })
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
-    inputs.antigravity-nix.packages.x86_64-linux.default
   ];
 
   programs.nvchad = {
@@ -121,10 +118,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    "test-file" = {
-      text = "this is the test file to check the copy functionality";
-      mode = "0777";
-    };
 
   };
 
