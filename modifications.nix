@@ -110,6 +110,7 @@
     arion
     comma
     niv
+    npin # better niv
 
     # Hardware utils
     pciutils

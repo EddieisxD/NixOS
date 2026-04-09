@@ -26,6 +26,14 @@
       "workbench.startupEditor"= "none";
       "workbench.statusBar.visible"= false;
       "workbench.colorTheme"= pkgs.lib.mkForce "Hybrid dim";
+
+
+      "chat.editor.fontSize" = pkgs.lib.mkForce 14;
+      "debug.console.fontSize" = pkgs.lib.mkForce 14;
+      "editor.fontSize" = pkgs.lib.mkForce 14;
+      "markdown.preview.fontSize" = pkgs.lib.mkForce 14;
+      "terminal.integrated.fontSize" = pkgs.lib.mkForce 14;
+
     };
   in {
     programs.vscode = {
@@ -59,13 +67,4 @@
 
   };
   
-  # home.file.".config/VSCodium/User/settings.json".source = 
-  #  config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/System/home-manager/dotfiles/vscodium/settings.json";
-  
-  # home.file.".config/VSCodium/User/settings.json" = if mutable then {
-  #   text = builtins.toJSON baseSettings;
-  #   # If false, Nix won't overwrite your manual changes later
-  #   force = false; 
-  # } else {};
-
 }

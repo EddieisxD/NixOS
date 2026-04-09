@@ -9,7 +9,7 @@
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ./config/ghostty.nix
-    ./config/vscodium.nix
+    # ./config/vscodium.nix
     ./config/github_auth.nix
     # ./caelestia-shell
     # ./hyprland
@@ -67,6 +67,7 @@
     pkgs.steam-run
     pkgs.zed-editor
     pkgs.devenv
+    pkgs.devpod
     pkgs.arion
     pkgs.niv
     pkgs.nixd
@@ -120,6 +121,10 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    "test-file" = {
+      text = "this is the test file to check the copy functionality";
+      mode = "0777";
+    };
 
   };
 
