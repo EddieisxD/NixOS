@@ -21,6 +21,10 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
@@ -34,6 +38,7 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.default
           inputs.disko.nixosModules.disko
+          inputs.hjem.nixosModules.default
           ./disko/disko.nix
           ./configuration.nix
         ];
