@@ -8,12 +8,9 @@
 
   imports = [
     ./system/default.nix
-    # ./storage/databases.nix
     ./desktop-environment/default.nix
     ./virtualisation/default.nix
     ./distroagnostic_package_management.nix
-    # ./multiple_monitors.nix
-    # ./nixos-container.nix
   ];
 
   
@@ -127,6 +124,7 @@
     devbox
     nvidia-container-toolkit
     nftables
+    noctalia-shell
 
     # more packages
     dnsmasq
