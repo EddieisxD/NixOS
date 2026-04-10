@@ -1,31 +1,72 @@
 
-{ ... }: {
+{
+  lib,
+  ... 
+}: {
 
   programs.starship = {
     enable = true;
     settings = {
-      # Custom prompt character
+      add_newline = false;
+
+      format = lib.concatStrings [
+        "$os"
+        "$directory"
+        "$git_branch"
+        "$git_status"
+        "$character"
+      ];
+
       character = {
-        success_symbol = "[➜ :](bold green)";
-        error_symbol = "[➜ :](bold red)";
+        success_symbol = "[λ](bold green)";
+        error_symbol = "[λ](bold red)";
+        vimcmd_symbol = "[𝜔](bold white)";
+        vimcmd_visual_symbol = "[𝜔](bold white)";
       };
 
-      # Truncated working directory (shows last 3)
+      os = {
+        disabled = false;
+      };
+
+      os.symbols = {
+        Windows = "󰍲";
+        Ubuntu = "󰕈";
+        SUSE = "";
+        Raspbian = "󰐿";
+        Mint = "󰣭";
+        Macos = " ";
+        Manjaro = "";
+        Linux = "󰌽";
+        Gentoo = "󰣨";
+        Fedora = "󰣛";
+        Alpine = "";
+        Amazon = "";
+        Android = "";
+        Arch = "󰣇";
+        Artix = "󰣇";
+        CentOS = "";
+        Debian = "󰣚";
+        Redhat = "󱄛";
+        NixOS = "";
+        RedHatEnterprise = "󱄛";
+      };
+
       directory = {
-        truncation_length = 3;
-        truncation_symbol = "…/";
-        style = "bold cyan";
+        style = "sapphire";
+        format = "[ $path ]($style)";
+        truncation_length = 4;
       };
 
       # Git branch status
       git_branch = {
-        symbol = " ";
         style = "bold purple";
+        symbol = " ";
       };
+
 
       # Nix Shell detection
       nix_shell = {
-        symbol = "❄️ ";
+        symbol = "⏒";
         format = "via [$symbol$state]($style) ";
       };
 
