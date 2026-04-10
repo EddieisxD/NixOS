@@ -107,6 +107,7 @@
     hm-activation = true;
   };
   xdg.configFile."nvim/lua/plugin_files".source = ./dotfiles/neovim/plugin_files;
+  xdg.configFile."nvim/lua/plugin_files".force = true;
 
   programs.nix-index = {
     enable = true;

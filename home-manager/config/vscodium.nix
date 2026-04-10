@@ -32,5 +32,5 @@
         ];
       };
     };
-    xdg.configFile."VSCodium/User/settings.json".source = ../dotfiles/vscodium/settings.json;
+    # xdg.configFile."VSCodium/User/settings.json".source = ../dotfiles/vscodium/settings.json;
 }
