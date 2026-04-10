@@ -216,7 +216,7 @@
         "nix-index-database": "nix-index-database",
         "nix4nvchad": "nix4nvchad",
         "nixpkgs": [
-          "current"
+          "unstable"
         ],
         "stable": "stable",
         "unstable": "unstable",
