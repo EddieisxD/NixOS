@@ -62,7 +62,7 @@
           marketplace.meronz.hybrid-dim
           marketplace.pkief.material-product-icons
         ];
-        userSettings = if mutable then {} else baseSettings;
+        # userSettings = if mutable then {} else baseSettings;
       };
 
   };

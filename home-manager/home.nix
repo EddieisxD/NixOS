@@ -9,7 +9,7 @@
     # ./programs/flatpaks.nix
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ./config/ghostty.nix
-    # ./config/vscodium.nix
+    ./config/vscodium.nix
     ./config/github_auth.nix
     # ./caelestia-shell
     # ./hyprland
