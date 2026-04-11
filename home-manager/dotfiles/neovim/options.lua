@@ -23,6 +23,7 @@ vim.opt.listchars = "tab:  ,trail: ,extends: ,precedes: "
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'nc'
 
+vim.opt.relativenumber = true
 ----
 vim.opt.wrap = true            -- Enable wrapping
 vim.opt.linebreak = true       -- Don't break words in the middle
