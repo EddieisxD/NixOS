@@ -108,6 +108,8 @@
     comma
     niv
     npins
+    wl-clipboard
+    cliphist
 
     # Hardware utils
     pciutils
@@ -257,7 +259,17 @@
     xterm
   ];
 
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-hyprland 
+      pkgs.xdg-desktop-portal-gtk 
+    ];
+    config.common.default = [ "hyprland" ];
+    # Use GTK specifically for file picking
+    config.common."org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+  };
 
   # NixOS by default adds coreutils, bash, systemd, etc., so no need to repeat.
 }
