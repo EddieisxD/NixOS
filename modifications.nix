@@ -111,10 +111,13 @@
     wl-clipboard
     cliphist
 
+
     # Hardware utils
     pciutils
     hwloc
     libva-utils
+    brightnessctl
+    wireplumber
 
     # Container stack
     podman
