@@ -4,11 +4,6 @@
   hardware.nvidia-container-toolkit.enable = true;
   hardware.intel-gpu-tools.enable = true;
 
-  # services.udev.extraRules = ''
-  #   # Keep NVIDIA GPU in active state to prevent GSP RPC timeouts on resume
-  #   ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="on"
-  # '';
-
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
@@ -37,7 +32,7 @@
     
     # forceFullCompositionPipeline = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-    nvidiaPersistenced = true;
+    nvidiaPersistenced = false;
 
     powerManagement.enable = true;
 
