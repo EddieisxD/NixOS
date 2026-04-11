@@ -1,4 +1,3 @@
-
 {
   lib,
   ... 
@@ -10,7 +9,7 @@
       add_newline = false;
 
       format = lib.concatStrings [
-        "$os"
+        "$os" "$container"
         "$directory"
         "$git_branch"
         "$git_status"
@@ -63,7 +62,6 @@
         symbol = " ";
       };
 
-
       # Nix Shell detection
       nix_shell = {
         symbol = "⏒";
@@ -74,7 +72,7 @@
       container = {
         disabled = false;
         format = "[$symbol $name]($style) ";
-        symbol = "📦";
+        symbol = " 󰡨";
       };
     };
   };
