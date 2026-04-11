@@ -106,10 +106,11 @@
     stow
     arion
     comma
-    niv
-    npins
-    wl-clipboard
-    cliphist
+    niv # package pinning
+    npins # niv but better 
+    wl-clipboard # clipboard bridge 
+    cliphist  # clipboard
+    grimblast # screenshot
 
 
     # Hardware utils
