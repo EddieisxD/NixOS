@@ -11,7 +11,6 @@
       # Required for modern Intel GPUs (Xe iGPU and ARC)
       intel-media-driver     # VA-API (iHD) userspace
       vpl-gpu-rt             # oneVPL (QSV) runtime
-      # Optional (compute / tooling):
       intel-compute-runtime  # OpenCL (NEO) + Level Zero for Arc/Xe
       libva-utils
     ];
@@ -33,31 +32,21 @@
     # forceFullCompositionPipeline = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     nvidiaPersistenced = false;
-
     powerManagement.enable = true;
-
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
-
+    powerManagement.finegrained = true;
     open = false;
-
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
-
       sync.enable = false;
-
       offload = {
         enable = true;
         enableOffloadCmd = true;
       };
-
       reverseSync.enable = false;
-
       # Make sure to use the correct Bus ID values for your system!
       # Address Format: A full PCI address is written as domain@bus:device:function
       # Domain denotes the CPU number ... it stats from 0 then what bus of the CPU then which device and which function is being called
