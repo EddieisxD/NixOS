@@ -80,7 +80,7 @@
     pkgs.tmux
     pkgs.ollama
     pkgs.planify
-    pkgs.protonvpn-gui
+    pkgs.proton-vpn
     pkgs.qbittorrent
     pkgs.telegram-desktop
     pkgs.vesktop
