@@ -8,7 +8,7 @@
   containers.dev-env = {
     autoStart = false;
     ephemeral = false;
-    privateNetwork = false; # Share host network stack
+    privateNetwork = true; # Share host network stack
 
     bindMounts = {
       # Share the Nix store to avoid duplication
@@ -26,7 +26,7 @@
       hardware.graphics.enable = true;
       
       environment.variables = {
-        WAYLAND_DISPLAY = "wayland-0";
+        WAYLAND_DISPLAY = "wayland-1";
         XDG_RUNTIME_DIR = "/run/user/1000";
         PULSE_SERVER = "unix:/run/user/1000/pulse/native";
       };
@@ -35,8 +35,6 @@
       programs.nix-ld.enable = true;
       services.envfs.enable = true;
 
-      # Allow the user to act as root in the container safely
-      users.users.root.password = ""; 
 
     };
   };

@@ -22,7 +22,8 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ]; # include "modesetting" in case you are running x11
+  # Display is on Intel iGPU (modesetting), NVIDIA is only for PRIME offload
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
 
   hardware.nvidia = {
 
