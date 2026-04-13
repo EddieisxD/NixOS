@@ -12,6 +12,7 @@
     ./virtualisation/default.nix
     ./distroagnostic_package_management.nix
     ./cachyos-tweaks.nix
+    ./nh.nix
   ];
 
   
