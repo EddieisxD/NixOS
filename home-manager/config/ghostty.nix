@@ -11,9 +11,10 @@
       background = "#000000";
       window-padding-balance = true;
       font-family = "JetBrainsMono Nerd Font Mono";
-      window-padding-y = 4;
-      window-padding-x = 4;
+      window-padding-y = 8;
+      window-padding-x = 8;
       window-decoration = false;
+      window-padding-color = "extend";
       gtk-tabs-location = "hidden";
       confirm-close-surface = false;
     };
