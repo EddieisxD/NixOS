@@ -104,13 +104,7 @@
     extraPackages = with pkgs; [ tree-sitter ];
     extraPlugins = builtins.readFile ./dotfiles/neovim/plugins.lua;
     extraConfig  = builtins.readFile ./dotfiles/neovim/options.lua;
-    chadrcConfig = ''
-      local M = {}
-      M.base46 = {
-        transparency = true,
-      }
-      return M
-      '';
+    chadrcConfig = builtins.readFile ./dotfiles/neovim/chadrc.lua;
     hm-activation = true;
   };
   xdg.configFile."nvim/lua/plugin_files".source = ./dotfiles/neovim/plugin_files;
