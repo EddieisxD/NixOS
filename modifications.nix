@@ -87,6 +87,7 @@
     zoxide
     fd
     fzf
+    pstree
     bat
     wget
     curl
