@@ -273,8 +273,8 @@
     extraPortals = [ 
       pkgs.xdg-desktop-portal-hyprland 
       pkgs.xdg-desktop-portal-gtk 
+      pkgs.xdg-desktop-portal-gnome
     ];
-    config.common.default = [ "hyprland" ];
     # Use GTK specifically for file picking
     config.common."org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
   };
