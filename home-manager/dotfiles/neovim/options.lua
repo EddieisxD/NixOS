@@ -29,3 +29,4 @@ vim.opt.wrap = true            -- Enable wrapping
 vim.opt.linebreak = true       -- Don't break words in the middle
 vim.opt.breakindent = true     -- Keep the wrap aligned with the line's start
 vim.opt.showbreak = "  "       -- Add a little padding to the start of wrapped lines
+

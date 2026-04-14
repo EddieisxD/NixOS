@@ -2,8 +2,8 @@
 
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
-  # Or "schedutil" for a balance of battery and speed
-  powerManagement.cpuFreqGovernor = "performance"; 
+  # Or "schedutil" for a balance of battery and speed for pure performance use "performance"
+  powerManagement.cpuFreqGovernor = "schedutil"; 
 
   # zramSwap.enable = true;
   # zramSwap.memoryPercent = 25; # Or a fixed 'memoryMax'
