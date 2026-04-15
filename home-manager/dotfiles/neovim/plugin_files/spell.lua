@@ -36,7 +36,7 @@ return {
   -- Spell completion (source for nvim-cmp)
   -- This provides completions from the vim spell engine
   {
-    "f3mshe/cmp-spell",
+    "f3fora/cmp-spell",
     dependencies = "hrsh7th/nvim-cmp",
   },
 }
