@@ -11,18 +11,21 @@ return  {
         path = "~/Documents/combined_notes/Obsidian/Vanity/",
       }
     },
-    -- FIXED: UI table is now correctly INSIDE opts
     ui = {
-      enable = true, -- Enable for link hiding and embeddings
+      enable = true,
       update_debounce = 200,
-      -- SURGICAL FIX: Disable checkboxes/bullets here 
-      -- so they don't fight with render-markdown
+      -- DISABLED in obsidian.nvim so they don't fight with render-markdown
       checkboxes = {},
       bullets = {},
-      -- Keep these for the "Obsidian" look
+      -- Set hl_groups to empty to disable their rendering
+      hl_groups = {
+        ObsidianTodo = { link = "Normal" },
+        ObsidianDone = { link = "Normal" },
+        ObsidianCheckRightBrace = { link = "Normal" },
+        ObsidianCheckLeftBrace = { link = "Normal" },
+        ObsidianAtxHeader = { link = "Normal" },
+      },
       external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
-      reference_text = { hl_group = "ObsidianRefText" },
-      highlight_text = { hl_group = "ObsidianHighlightText" },
       tags = { hl_group = "ObsidianTag" },
     },
   },

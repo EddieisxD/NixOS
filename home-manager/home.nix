@@ -109,6 +109,8 @@
   };
   xdg.configFile."nvim/lua/plugin_files".source = ./dotfiles/neovim/plugin_files;
   xdg.configFile."nvim/lua/plugin_files".force = true;
+  xdg.configFile."nvim/dictionaries".source = ./dotfiles/neovim/dictionaries;
+  xdg.configFile."nvim/dictionaries".force = true;
 
   programs.nix-index = {
     enable = true;
