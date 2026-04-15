@@ -3,6 +3,7 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
   ft = { "markdown", "norg", "rmd", "org" },
   opts = {
+    enabled_filetypes = { "markdown", "org", "norg", "rmd" },
     preset = "obsidian",
     acknowledge_conflicts = true,
     heading = {

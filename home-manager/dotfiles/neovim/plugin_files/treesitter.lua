@@ -4,12 +4,8 @@ return {
   build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "markdown",
-        "markdown_inline",
-        "org",
-        "norg",
-      },
+      ensure_installed = {}, -- Managed by Nix (withPlugins)
+      auto_install = false,
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,

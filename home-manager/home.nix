@@ -101,7 +101,17 @@
   programs.nvchad = {
     enable = true;
     backup = false;
-    extraPackages = with pkgs; [ tree-sitter ];
+    extraPackages = with pkgs; [ 
+      tree-sitter 
+      bash-language-server
+      (vimPlugins.nvim-treesitter.withPlugins (p: [ 
+        p.markdown 
+        p.markdown_inline 
+        p.org 
+        p.nix 
+        p.lua 
+      ]))
+    ];
     extraPlugins = builtins.readFile ./dotfiles/neovim/plugins.lua;
     extraConfig  = builtins.readFile ./dotfiles/neovim/options.lua;
     chadrcConfig = builtins.readFile ./dotfiles/neovim/chadrc.lua;

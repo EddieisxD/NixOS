@@ -12,8 +12,6 @@ return {
   require("plugin_files.spell"),
   -- Plugin 6: LSP Configuration
   require("plugin_files.lsp"),
-  -- Plugin 7: nvim-neorg (Next-gen note taking)
-  require("plugin_files.neorg"),
 
   -- Override NvChad default cmp to add dictionary and spell
   {
@@ -21,6 +19,7 @@ return {
     opts = function(_, opts)
       table.insert(opts.sources, { name = "dictionary", keyword_length = 2 })
       table.insert(opts.sources, { name = "spell" })
+      return opts
     end,
   },
 }
