@@ -4,8 +4,12 @@ return {
   dependencies = {
     "hrsh7th/nvim-cmp",
   },
-  config = function()
-    vim.opt.spell = false -- Don't enable globally
+  config = function(_, opts)
+    -- Dictionary setup
+    require("cmp_dictionary").setup(opts)
+
+    -- Spell settings
+    vim.opt.spell = false
     vim.opt.spelllang = "en_us"
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "markdown", "org", "norg", "text" },
@@ -16,8 +20,8 @@ return {
   end,
   opts = {
     paths = {
-     markdown = vim.fn.stdpath("config") .. "/dictionaries/markdown.dict",
-      org = vim.fn.stdpath("config") .. "/dictionaries/markdown.dict", -- Reuse for now
+      markdown = vim.fn.stdpath("config") .. "/dictionaries/markdown.dict",
+      org = vim.fn.stdpath("config") .. "/dictionaries/markdown.dict",
       norg = vim.fn.stdpath("config") .. "/dictionaries/markdown.dict",
       text = vim.fn.stdpath("config") .. "/dictionaries/markdown.dict",
     },

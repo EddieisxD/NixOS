@@ -12,21 +12,7 @@ return  {
       }
     },
     ui = {
-      enable = true,
-      update_debounce = 200,
-      -- DISABLED in obsidian.nvim so they don't fight with render-markdown
-      checkboxes = {},
-      bullets = {},
-      -- Set hl_groups to empty to disable their rendering
-      hl_groups = {
-        ObsidianTodo = { link = "Normal" },
-        ObsidianDone = { link = "Normal" },
-        ObsidianCheckRightBrace = { link = "Normal" },
-        ObsidianCheckLeftBrace = { link = "Normal" },
-        ObsidianAtxHeader = { link = "Normal" },
-      },
-      external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
-      tags = { hl_group = "ObsidianTag" },
+      enable = false, -- Offload UI to render-markdown.nvim for better consistency
     },
   },
 }

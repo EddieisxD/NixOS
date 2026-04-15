@@ -20,10 +20,11 @@ return {
     home = vim.env.HOME .. "/Documents/combined_notes/Telekasten",
     take_over_my_home = true,
     auto_set_filetype = true,
-    template_dirs = vim.env.HOME .. "/Documents/combined_notes/Telekasten/templates",
     extension = ".md",
     new_note_location = "smart",
     rename_update_links = true,
+    template_new_note = vim.env.HOME .. "/Documents/combined_notes/Telekasten/templates/new_note.md",
+    template_new_journal = vim.env.HOME .. "/Documents/combined_notes/Telekasten/templates/new_journal.md",
     vaults = {
       personal = {
         home = vim.env.HOME .. "/Documents/combined_notes/Telekasten",

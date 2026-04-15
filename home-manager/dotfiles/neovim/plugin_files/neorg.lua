@@ -39,5 +39,12 @@ return {
         ["core.ui.calendar"] = {},
       },
     })
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "norg",
+      callback = function()
+        vim.opt_local.conceallevel = 2
+        vim.opt_local.concealcursor = "nc"
+      end,
+    })
   end,
 }
