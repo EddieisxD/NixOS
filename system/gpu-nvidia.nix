@@ -32,15 +32,11 @@
     
     # forceFullCompositionPipeline = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-    nvidiaPersistenced = false;
+    nvidiaPersistenced = true;
     powerManagement.enable = true;
     powerManagement.finegrained = true;
     open = true;
     nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
-
     prime = {
       sync.enable = false;
       offload = {
@@ -48,9 +44,6 @@
         enableOffloadCmd = true;
       };
       reverseSync.enable = false;
-      # Make sure to use the correct Bus ID values for your system!
-      # Address Format: A full PCI address is written as domain@bus:device:function
-      # Domain denotes the CPU number ... it stats from 0 then what bus of the CPU then which device and which function is being called
       intelBusId  = "PCI:0@0:2:0";
       nvidiaBusId = "PCI:0@1:0:0";
       # amdgpuBusId = "PCI:54:0:0"; For AMD GPU

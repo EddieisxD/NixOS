@@ -27,6 +27,7 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nixos-facter.url = "github:numtide/nixos-facter";
   };
   outputs = { nixpkgs, ... }@inputs:
     let
@@ -35,6 +36,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          # inputs.nixos-facter.nixosModules.facter
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.default
           inputs.disko.nixosModules.disko
