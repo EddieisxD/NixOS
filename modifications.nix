@@ -2,6 +2,7 @@
   pkgs,
   nixpkgs,
   lib,
+  inputs,
   ...
 }:
 {
@@ -11,21 +12,21 @@
     ./desktop-environment/default.nix
     ./virtualisation/default.nix
     ./distroagnostic_package_management.nix
-    ./cachyos-tweaks.nix
+    # ./cachyos-tweaks.nix
     ./nh.nix
-    ./nixos-container.nix
+    # ./nixos-container.nix
   ];
 
   
   # Verifies authenticity of the programs being downloaded
-  programs.gnupg.agent = {
-    enable = true;
-  };
+  # programs.gnupg.agent = {
+  #   enable = true;
+  # };
 
   # ──────────────────────────────────────────────────────────────
   # Gaming
   # ──────────────────────────────────────────────────────────────
-  programs.steam.enable = true;
+  # programs.steam.enable = true;
   # programs.steam.gamescopeSession.enable = true;
   # programs.gamemode.enable = true;
   # programs.gamescope.enable = true;
@@ -34,7 +35,7 @@
 
   services.tailscale.enable = false;
   services.fwupd.enable = true;
-  services.thermald.enable = true;
+  # services.thermald.enable = true;
 
   # nixpkgs.overlays = [
   #   (final: prev: {
@@ -135,7 +136,9 @@
     devbox
     nvidia-container-toolkit
     nftables
-    noctalia-shell
+    inputs.unstable.legacyPackages.${system}.noctalia-shell
+
+    inputs.nix-alien.packages.${system}.nix-alien
 
     # more packages
     dnsmasq
@@ -144,6 +147,7 @@
     waypipe
     steam-run
     bazaar
+
   ];
 
   # ──────────────────────────────────────────────────────────────

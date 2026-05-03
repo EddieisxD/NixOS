@@ -2,8 +2,7 @@
   description = "Pinning my NixOS configuration";
   inputs = {
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stable.url   = "github:nixos/nixpkgs/nixos-25.11";
-    current.url  = "github:NixOS/nixpkgs?rev=917fec990948658ef1ccd07cef2a1ef060786846";
+    stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.follows = "unstable";
     disko = {
       url = "github:nix-community/disko";
@@ -28,15 +27,20 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nixos-facter.url = "github:numtide/nixos-facter";
+    nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-ld.url = "github:Mic92/nix-ld";
   };
-  outputs = { nixpkgs, ... }@inputs:
+  outputs =
+    { nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
-    in {
+    in
+    {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           # inputs.nixos-facter.nixosModules.facter
+          # inputs.nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.default
           inputs.disko.nixosModules.disko

@@ -11,6 +11,8 @@ local M = {
   -- Plugin 6: LSP Configuration
   require("configs.plugin_files.lsp"),
 
+  require("configs.plugin_files.noice"),
+
   -- Override NvChad default cmp to add dictionary and spell
   {
     "hrsh7th/nvim-cmp",

@@ -11,8 +11,8 @@
       background = "#000000";
       window-padding-balance = true;
       font-family = "JetBrainsMono Nerd Font Mono";
-      window-padding-y = 8;
-      window-padding-x = 8;
+      window-padding-y = 12;
+      window-padding-x = 12;
       window-decoration = false;
       window-padding-color = "extend";
       gtk-tabs-location = "hidden";

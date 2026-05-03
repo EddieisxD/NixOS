@@ -1,16 +1,16 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  services.envfs.enable = false;
-  
-
-  # Automatically creates a loader in /lib/* to avoid patching stuff
-  # To disable it temporarily use
-  # unset NIX_LD
+  services.envfs.enable = true;
   programs.nix-ld = {
-    enable = false;
+    enable = true;
     libraries = with pkgs; [
       # List by default
       zlib
@@ -27,7 +27,7 @@
       util-linux
       xz
       systemd
-      
+
       # My own additions
       xorg.libXcomposite
       xorg.libXtst
@@ -50,7 +50,7 @@
 
       # Inspired by steam
       # https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/st/steam/package.nix#L36-L85
-      networkmanager      
+      networkmanager
       vulkan-loader
       libgbm
       libdrm
@@ -59,7 +59,7 @@
       pciutils
       zenity
       # glibc_multi.bin # Seems to cause issue in ARM
-      
+
       # # Without these it silently fails
       xorg.libXinerama
       xorg.libXcursor
@@ -79,7 +79,7 @@
       ffmpeg
       # Only libraries are needed from those two
       libudev0-shim
-      
+
       # needed to run unity
       gtk3
       icu
@@ -91,7 +91,7 @@
       # it will segfault when opening files if you don’t do:
       # export XDG_DATA_DIRS=/nix/store/0nfsywbk0qml4faa7sk3sdfmbd85b7ra-gsettings-desktop-schemas-43.0/share/gsettings-schemas/gsettings-desktop-schemas-43.0:/nix/store/rkscn1raa3x850zq7jp9q3j5ghcf6zi2-gtk+3-3.24.35/share/gsettings-schemas/gtk+3-3.24.35/:$XDG_DATA_DIRS
       # other issue: (Unity:377230): GLib-GIO-CRITICAL **: 21:09:04.706: g_dbus_proxy_call_sync_internal: assertion 'G_IS_DBUS_PROXY (proxy)' failed
-      
+
       # Verified games requirements
       xorg.libXt
       xorg.libXmu
@@ -102,7 +102,7 @@
       glew110
       libidn
       tbb
-      
+
       # Other things from runtime
       flac
       freeglut
@@ -165,6 +165,6 @@
       libuuid
       util-linux
     ];
-  };  
+  };
 
 }

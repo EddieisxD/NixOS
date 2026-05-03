@@ -31,10 +31,10 @@
     modesetting.enable = true;
     
     # forceFullCompositionPipeline = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    nvidiaPersistenced = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    # package = config.boot.kernelPackages.nvidiaPackages.stable;
+    nvidiaPersistenced = false;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
     prime = {
