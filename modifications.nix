@@ -35,6 +35,8 @@
 
   services.tailscale.enable = false;
   services.fwupd.enable = true;
+
+  services.upower.enable = true;
   # services.thermald.enable = true;
 
   # nixpkgs.overlays = [
