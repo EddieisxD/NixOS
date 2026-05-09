@@ -2,21 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ 
+{
   config,
-  pkgs, 
+  pkgs,
   inputs,
   ...
 }:
 {
   system.stateVersion = "26.05";
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./modifications.nix
-      ./hardware-configuration.nix
-      ./variables.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./modifications.nix
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -34,9 +33,7 @@
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
     backupCommand = "rm -f $BACKUPFILE";
-    sharedModules = [
-      ./variables.nix
-    ];
+    sharedModules = [ ];
   };
 
   time.timeZone = "Asia/Kolkata";
@@ -82,13 +79,15 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    # media-session.enable = true;
   };
 
   users.users.addy = {
     isNormalUser = true;
     description = "Addy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
   };
 
