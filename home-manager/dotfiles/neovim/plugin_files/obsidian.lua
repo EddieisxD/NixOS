@@ -8,7 +8,7 @@ return  {
     workspaces = {
       {
         name = "personal",
-        path = "~/Documents/combined_notes/Obsidian/Vanity/",
+        path = "~/vaults/vault33/",
       }
     },
     ui = {

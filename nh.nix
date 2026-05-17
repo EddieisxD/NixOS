@@ -4,7 +4,7 @@
     enable = true;
     # 1. Point to your flake directory
     # Now you can run 'nh os switch' from ANYWHERE without --flake /path/to/flake
-    flake = "/home/addy/Templates/NixOS/";
+    flake = "/home/addy/System/v1/";
 
     # 2. Automate Garbage Collection
     clean = {

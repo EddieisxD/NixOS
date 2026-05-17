@@ -6,19 +6,19 @@
 
     # Subvolumes must set a mountpoint to be mounted, unless their parent is mounted
     subvolumes = {
-      "/nixos" = { };
+      "@nixos" = { };
       # Root subvolume, mounted at /
-      "/nixos/root" = {
+      "@nixos/root" = {
         mountpoint = "/";
         mountOptions = [ "compress=zstd" "noatime" ];
       };
       # Home subvolume, mounted at /home
-      "/nixos/home" = {
+      "@home" = {
         mountpoint = "/home";
         mountOptions = [ "compress=zstd" "noatime" ];
       };
       # Nix subvolume, mounted at /nix
-      "/nixos/nix" = {
+      "@nix" = {
         mountpoint = "/nix";
         mountOptions = [ "compress=zstd" "noatime" ];
       };
@@ -26,7 +26,7 @@
       # We mount it at a hidden path, like /.swapvol, so the swap file
       # can be placed inside it. This allows for snapshotting the root
       # subvolume without including the swap file.
-      "/nixos/swap" = {
+      "@swap" = {
         mountpoint = "/.swap-file";
         # Leave compression off on this subvolume because it will hold the swapfile.
         swap.swapfile.size = "16G"; # Create a 16G swapfile inside this subvolume

@@ -14,20 +14,20 @@ local M = {
   require("configs.plugin_files.noice"),
 
   -- Override NvChad default cmp to add dictionary and spell
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "dictionary", keyword_length = 2 })
-      table.insert(opts.sources, { name = "spell" })
-      return opts
-    end,
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   opts = function(_, opts)
+  --     table.insert(opts.sources, { name = "dictionary", keyword_length = 2 })
+  --     table.insert(opts.sources, { name = "spell" })
+  --     return opts
+  --   end,
+  -- },
 }
 
 -- Plugin 5: Spelling & Dictionary (returns a list, so we flatten it)
-local spell_plugins = require("configs.plugin_files.spell")
-for _, p in ipairs(spell_plugins) do
-  table.insert(M, p)
-end
+-- local spell_plugins = require("configs.plugin_files.spell")
+-- for _, p in ipairs(spell_plugins) do
+--   table.insert(M, p)
+-- end
 
 return M
