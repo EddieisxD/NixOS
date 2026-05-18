@@ -3,6 +3,13 @@ M.base46 = {
   transparency = true,
   theme = "onedark"
 }
+-- M.ui = {
+--   statusline = {
+--     theme = "default",
+--     separator_style = "round",
+--     order = { "mode", "git", "%=", "lsp_msg", "%=", "lsp", "cwd"  },
+--   }
+-- }
 M.highlights = {
   markdownHeading1 = { fg = "RenderMarkdownHeading" },
   markdownHeading2 = { fg = "RenderMarkdownHeading" },
