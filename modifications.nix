@@ -49,11 +49,6 @@
 
   # Cosmic Desktop
 
-  # Razer
-  hardware.openrazer = {
-    enable = true;
-    users = [ "addy" ];
-  };
 
   # ──────────────────────────────────────────────────────────────
   # Network Packet Filtering
