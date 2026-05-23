@@ -158,6 +158,7 @@
 
   nix = {
 
+    package = pkgs.lixPackageSets.stable.lix;
     registry.nixpkgs.flake = nixpkgs;
     settings = {
 
