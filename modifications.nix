@@ -14,6 +14,7 @@
     ./distroagnostic_package_management.nix
     # ./cachyos-tweaks.nix
     ./nh.nix
+    ./ldd.nix
     # ./nixos-container.nix
   ];
 
