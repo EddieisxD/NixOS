@@ -78,7 +78,7 @@
     pkgs.super-productivity
     pkgs.nushell
     pkgs.tmux
-    pkgs.ollama
+    pkgs.ollama-cuda
     pkgs.planify
     # pkgs.proton-vpn
     pkgs.qbittorrent
