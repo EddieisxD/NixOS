@@ -2,7 +2,6 @@
   description = "Pinning my NixOS configuration";
   inputs = {
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.follows = "unstable";
     disko = {
       url = "github:nix-community/disko";
@@ -20,15 +19,20 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hjem = {
-      url = "github:feel-co/hjem";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nixos-facter.url = "github:numtide/nixos-facter";
-    nix-alien.url = "github:thiagokokada/nix-alien";
-    nix-ld.url = "github:Mic92/nix-ld";
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-index-database.follows = "nix-index-database";
+    };
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     { nixpkgs, ... }@inputs:
@@ -39,12 +43,10 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          # inputs.nixos-facter.nixosModules.facter
           # inputs.nix-ld.nixosModules.nix-ld
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.default
           inputs.disko.nixosModules.disko
-          inputs.hjem.nixosModules.default
           ./disko/disko.nix
           ./configuration.nix
         ];
