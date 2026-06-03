@@ -20,7 +20,7 @@
   # manage.
   home.username = "addy";
   home.homeDirectory = "/home/addy";
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
   # programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -69,7 +69,6 @@
     pkgs.arion
     pkgs.niv
     pkgs.nixd
-    pkgs.nil
     pkgs.anytype
     pkgs.glab
     pkgs.stow
@@ -78,7 +77,6 @@
     pkgs.super-productivity
     pkgs.nushell
     pkgs.tmux
-    pkgs.ollama-cuda
     pkgs.planify
     # pkgs.proton-vpn
     pkgs.qbittorrent
@@ -157,5 +155,5 @@
   };
 
   # Let Home Manager install and manage itself.
-  # programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 }
