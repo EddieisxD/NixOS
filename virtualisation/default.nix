@@ -47,11 +47,11 @@
       enable = false;
     };
 
-    # incus = {
-    #   enable = true;
-    #   ui.enable = true; # optional web ui
-    #   package = pkgs.incus;
-    # };
+    incus = {
+      enable = true;
+      ui.enable = true; # optional web ui
+      package = pkgs.incus;
+    };
 
   };
 }
