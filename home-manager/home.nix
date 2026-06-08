@@ -21,6 +21,9 @@
   home.username = "addy";
   home.homeDirectory = "/home/addy";
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
   # programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
