@@ -100,18 +100,18 @@
     otree
     yq
     kitty
-    btrbk
+    # btrbk
     appimage-run
-    ptyxis
+    # ptyxis
     direnv
-    cachix
+    # cachix
     home-manager
     devenv
-    stow
+    # stow
     arion
     comma
-    niv # package pinning
-    npins # niv but better 
+    # niv # package pinning
+    # npins # niv but better 
     wl-clipboard # clipboard bridge 
     cliphist  # clipboard
     grimblast # screenshot
@@ -128,14 +128,13 @@
     podman
     docker
     incus
-    waydroid
+    # waydroid
     distrobox
-    nixos-container
-    devbox
+    # nixos-container
+    # devbox
     nvidia-container-toolkit
     nftables
     inputs.unstable.legacyPackages.${system}.noctalia-shell
-
     inputs.nix-alien.packages.${system}.nix-alien
 
     # more packages
@@ -144,7 +143,7 @@
     remmina
     waypipe
     steam-run
-    bazaar
+    # bazaar
 
   ];
 
