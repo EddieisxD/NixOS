@@ -21,9 +21,9 @@
   home.username = "addy";
   home.homeDirectory = "/home/addy";
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-39.8.10"
+  # ];
   # programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -42,49 +42,49 @@
     pkgs.trash-cli
     pkgs.tldr
     pkgs.starship
-    pkgs.sesh
-    pkgs.zellij
-    pkgs.magic-wormhole
-    pkgs.croc
-    pkgs.impala
-    pkgs.atuin
+    # pkgs.sesh
+    # pkgs.zellij
+    # pkgs.magic-wormhole
+    # pkgs.croc
+    # pkgs.impala
+    # pkgs.atuin
     pkgs.eza
     pkgs.vscodium
-    pkgs.protonup-ng
-    pkgs.x11docker
+    # pkgs.protonup-ng
+    # pkgs.x11docker
     pkgs.ghostty
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.zed-mono
     pkgs.nerd-fonts.hasklug
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.direnv
-    pkgs.ansible
+    # pkgs.ansible
     pkgs.gh
-    pkgs.waypipe
-    pkgs.duplicati
+    # pkgs.waypipe
+    # pkgs.duplicati
     pkgs.opencode
     pkgs.zotero
-    pkgs.jabref
-    pkgs.steam-run
+    # pkgs.jabref
+    # pkgs.steam-run
     pkgs.zed-editor
     pkgs.devenv
-    pkgs.devpod
+    # pkgs.devpod
     pkgs.arion
-    pkgs.niv
+    # pkgs.niv
     pkgs.nixd
-    pkgs.anytype
-    pkgs.glab
-    pkgs.stow
+    # pkgs.anytype
+    # pkgs.glab
+    # pkgs.stow
     pkgs.obsidian
-    pkgs.logseq
+    # pkgs.logseq
     pkgs.super-productivity
     pkgs.nushell
     pkgs.tmux
-    pkgs.planify
+    # pkgs.planify
     # pkgs.proton-vpn
     pkgs.qbittorrent
     pkgs.telegram-desktop
-    pkgs.vesktop
+    # pkgs.vesktop
     pkgs.vlc
     pkgs.bazaar
     pkgs.warehouse
@@ -95,8 +95,8 @@
        gamemode
       ];
      })
-    pkgs.bitwarden-desktop
-    pkgs.bitwarden-cli
+    # pkgs.bitwarden-desktop
+    # pkgs.bitwarden-cli
   ];
 
   programs.nvchad = {
