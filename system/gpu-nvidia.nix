@@ -23,7 +23,11 @@
 
   # Load nvidia driver for Xorg and Wayland
   # Display is on Intel iGPU (modesetting), NVIDIA is only for PRIME offload
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [  "nvidia" ]; # "modesetting"
+
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_EnableGpuFirmware=0
+  '';
 
   hardware.nvidia = {
 
@@ -35,7 +39,7 @@
     nvidiaPersistenced = true;
     powerManagement.enable = true;
     powerManagement.finegrained = true;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     prime = {
       sync.enable = false;
