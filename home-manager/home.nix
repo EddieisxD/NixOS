@@ -10,6 +10,7 @@
     # inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ./config/ghostty.nix
     ./config/vscodium.nix
+    ./qtile
     ./config/github_auth.nix
     # ./caelestia-shell
     # ./hyprland

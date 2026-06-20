@@ -76,6 +76,16 @@
   services.swapspace.enable = true;
   services.earlyoom.enable = true;
 
+  # X11 input — touchpad, mouse, etc.
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      tapping = true;
+      clickMethod = "clickfinger";
+      naturalScrolling = true;
+    };
+  };
+
   # ──────────────────────────────────────────────────────────────
   #  Base System Packages
   # ──────────────────────────────────────────────────────────────
@@ -257,6 +267,12 @@
       # Optional UI fallback
       liberation_ttf
     ];
+  };
+
+  # Consistent cursor across desktop & apps
+  environment.variables = {
+    XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "24";
   };
 
   # ──────────────────────────────────────────────────────────────

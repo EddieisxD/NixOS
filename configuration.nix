@@ -26,15 +26,15 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  # home-manager = {
-  #   users.addy = import ./home-manager/home.nix;
-  #   useGlobalPkgs = true;
-  #   useUserPackages = true;
-  #   extraSpecialArgs = { inherit inputs; };
-  #   backupFileExtension = "backup";
-  #   backupCommand = "rm -f $BACKUPFILE";
-  #   sharedModules = [ ];
-  # };
+  home-manager = {
+    users.addy = import ./home-manager/home.nix;
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
+    backupCommand = "rm -f $BACKUPFILE";
+    sharedModules = [ ];
+  };
 
   time.timeZone = "Asia/Kolkata";
 
