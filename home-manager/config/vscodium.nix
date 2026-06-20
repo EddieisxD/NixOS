@@ -5,7 +5,7 @@
     marketplace = vscode-extensions.extensions.x86_64-linux.vscode-marketplace;
     open-vsx = vscode-extensions.extensions.x86_64-linux.open-vsx;
   in {
-    programs.vscode = {
+    programs.vscodium = {
       enable = true;
       package = pkgs.vscodium;
       mutableExtensionsDir = true;
@@ -13,16 +13,17 @@
       profiles.default = {
         extensions = [
 
-          marketplace.mkhl.direnv
-          marketplace.arrterian.nix-env-selector
+          pkgs.vscode-extensions.teros-technology.teroshdl
+          pkgs.vscode-extensions.asvetliakov.vscode-neovim
+          pkgs.vscode-extensions.mkhl.direnv
+          pkgs.vscode-extensions.continue.continue
+          pkgs.vscode-extensions.llvm-vs-code-extensions.vscode-clangd
+          pkgs.vscode-extensions.jnoortheen.nix-ide
 
           open-vsx.jeanp413.open-remote-ssh
 
           # language support
           marketplace.tamasfe.even-better-toml
-          marketplace.jnoortheen.nix-ide
-          marketplace.llvm-vs-code-extensions.vscode-clangd
-
           # themes
           marketplace.catppuccin.catppuccin-vsc
           marketplace.catppuccin.catppuccin-vsc-icons
@@ -32,5 +33,6 @@
         ];
       };
     };
-    # xdg.configFile."VSCodium/User/settings.json".source = ../dotfiles/vscodium/settings.json;
+    xdg.configFile."VSCodium/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/addy/System/v1/home-manager/dotfiles/vscodium/settings.json";
+    xdg.configFile."VSCodium/User/settings.json".force = true;
 }
