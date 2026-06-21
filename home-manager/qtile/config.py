@@ -17,11 +17,6 @@ from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, hook
 from libqtile.lazy import lazy
 
-try:
-    from libqtile.backend.wayland import InputConfig
-except ImportError:
-    InputConfig = None
-
 ASSETS = os.path.expanduser("~/.config/qtile/Assets")
 LAYOUT_ICONS = os.path.expanduser("~/.config/qtile/Assets/layout")
 
@@ -432,8 +427,9 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-wl_xcursor_theme = "Adwaita"
-wl_xcursor_size = 24
+if is_wayland:
+    wl_xcursor_theme = "Adwaita"
+    wl_xcursor_size = 24
 floating_layout = layout.Floating(
     border_focus="#1F1D2E",
     border_normal="#1F1D2E",
@@ -469,7 +465,9 @@ reconfigure_screens = True
 auto_minimize = True
 
 # Wayland backend input configuration
-if InputConfig is not None:
+if is_wayland:
+    from libqtile.backend.wayland import InputConfig
+
     wl_input_rules = {
         "type:touchpad": InputConfig(
             natural_scroll=True,
@@ -485,8 +483,6 @@ if InputConfig is not None:
             kb_layout="us",
         ),
     }
-else:
-    wl_input_rules = None
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
