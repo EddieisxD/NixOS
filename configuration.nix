@@ -28,7 +28,7 @@
 
   home-manager = {
     users.addy = import ./home-manager/home.nix;
-    useGlobalPkgs = true;
+    # useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
@@ -57,7 +57,6 @@
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
   services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11

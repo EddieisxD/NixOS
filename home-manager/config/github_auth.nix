@@ -3,7 +3,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false; 
-    matchBlocks = {
+    settings = {
       "github_aditya22598" = {
         hostname = "github.com";
         user = "git";

@@ -40,17 +40,6 @@
   # services.upower.enable = true;
   # services.thermald.enable = true;
 
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     # This "creates" pkgs.xrdb by pointing it to the correct location
-  #     # This satisfies the Home Manager module's internal requirements.
-  #     xrdb = prev.xorg.xrdb;
-  #   })
-  # ];
-
-  # Cosmic Desktop
-
-
   # ──────────────────────────────────────────────────────────────
   # Network Packet Filtering
   # ──────────────────────────────────────────────────────────────
