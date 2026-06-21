@@ -3,15 +3,16 @@
   pkgs,
   ...
 }: {
-  home.sessionVariables = {
-    XCURSOR_THEME = "Adwaita";
-    XCURSOR_SIZE = "24";
-  };
+  # Redundant cursor configuration moved to global home.nix to prevent conflicts across DEs
+  # home.sessionVariables = {
+  #   XCURSOR_THEME = "Adwaita";
+  #   XCURSOR_SIZE = "24";
+  # };
 
-  gtk.cursorTheme = {
-    name = "Adwaita";
-    size = 24;
-  };
+  # gtk.cursorTheme = {
+  #   name = "Adwaita";
+  #   size = 24;
+  # };
 
   home.file = {
     ".config/qtile/config.py".source = ./config.py;

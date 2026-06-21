@@ -98,6 +98,10 @@
      })
     # pkgs.bitwarden-desktop
     # pkgs.bitwarden-cli
+    pkgs.adw-gtk3
+    pkgs.adwaita-icon-theme
+    pkgs.banana-cursor
+    pkgs.xorg.xrdb
   ];
 
   programs.nvchad = {
@@ -157,6 +161,42 @@
     EDITOR = "nvim";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     PATH = "$HOME/.local/bin:$PATH";
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.banana-cursor;
+    name = "Banana";
+    size = 24;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "adwaita-dark";
+  };
+
+  xresources.properties = {
+    "Xft.dpi" = 120; # 96 * 1.25 (for monitor scale 1.25)
+    "Xft.autohint" = 0;
+    "Xft.lcdfilter" = "lcddefault";
+    "Xft.hintstyle" = "hintfull";
+    "Xft.hinting" = 1;
+    "Xft.antialias" = 1;
+    "Xft.rgba" = "rgb";
   };
 
   # Let Home Manager install and manage itself.
