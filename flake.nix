@@ -1,6 +1,6 @@
 {
   description = "Pinning my NixOS configuration";
-  inputs = {
+  inputs =  {
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "unstable";
     disko = {
@@ -33,6 +33,8 @@
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree/nixos-unstable";
+    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
     { nixpkgs, ... }@inputs:
