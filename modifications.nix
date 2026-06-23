@@ -170,6 +170,7 @@
 	      "https://cache.nixos.org"
 	      "https://nix-community.cachix.org"
 	      "https://devenv.cachix.org"
+        "https://cuda-maintainers.cachix.org"
       ];
 
       trusted-public-keys = [
