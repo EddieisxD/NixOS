@@ -149,6 +149,8 @@
   #  Enable Modern Nix CLI + Flake Support
   # ──────────────────────────────────────────────────────────────
 
+  documentation.nixos.enable = false;
+
   nix = {
 
     package = pkgs.lixPackageSets.stable.lix;
