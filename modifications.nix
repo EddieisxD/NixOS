@@ -166,6 +166,10 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "parallel-eval"
+        "ca-derivations"
+        "auto-allocate-uids"
+        "cgroups"
       ];
 
       substituters = [
@@ -186,10 +190,12 @@
       builders-use-substitutes = true;
       keep-outputs = true;
       keep-derivations = true;
+      eval-cache = true;
+      eval-cores = 0;
 
       cores = 0;
       # Safety and reproducibility settings
-      warn-dirty = false; # don’t nag on uncommitted files
+      warn-dirty = true; # don’t nag on uncommitted files
       auto-optimise-store = false; # deduplicate identical files in /nix/store
       sandbox = true; # ensure pure builds
       trusted-users = [
