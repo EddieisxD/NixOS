@@ -17,7 +17,9 @@ The goal is to reduce the time it takes for my nixos configuration to compile.
 - attn or Custom Shell Parallelism
 - mold (faster linker)
 - avoid IFD (import from derivation)
+- remove git history being copied in the nix/store
 
 # Implementations and cons:
 
 - Implementing the safest thing first `documentation.nixos.enable = false;` the cons for this is This stops you from using nixos-help locally.
+- removing the git history being copied inside /nix/store/; cons none, this increase the speed and reduce the disk size.
