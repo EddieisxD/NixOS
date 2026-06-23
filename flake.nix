@@ -3,6 +3,7 @@
   inputs =  {
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +47,7 @@
         inherit system;
         modules = [
           # inputs.nix-ld.nixosModules.nix-ld
+          inputs.determinate.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           inputs.nix-index-database.nixosModules.default
           inputs.disko.nixosModules.disko

@@ -153,7 +153,7 @@
 
   nix = {
 
-    package = pkgs.lixPackageSets.stable.lix;
+    # package = pkgs.lixPackageSets.stable.lix;
 
     registry = {
       nixos.flake = inputs.nixpkgs-unfree;
