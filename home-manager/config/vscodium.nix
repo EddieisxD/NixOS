@@ -19,6 +19,7 @@
           pkgs.vscode-extensions.continue.continue
           pkgs.vscode-extensions.llvm-vs-code-extensions.vscode-clangd
           pkgs.vscode-extensions.jnoortheen.nix-ide
+          pkgs.vscode-extensions.foam.foam-vscode
 
           open-vsx.jeanp413.open-remote-ssh
 

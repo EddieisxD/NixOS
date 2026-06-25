@@ -42,7 +42,6 @@
     pkgs.trash-cli
     pkgs.tldr
     pkgs.starship
-    pkgs.kdePackages.kdeconnect-kde
     # pkgs.sesh
     # pkgs.zellij
     # pkgs.magic-wormhole

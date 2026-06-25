@@ -33,7 +33,8 @@
   # powerManagement.cpuFreqGovernor = "performance";
   # services.power-profiles-daemon.enable = false;
 
-  services.tailscale.enable = false;
+  services.tailscale.enable = true;
+  programs.kdeconnect.enable = true;
   services.fwupd.enable = true;
 
   # services.upower.enable = true;
@@ -113,6 +114,7 @@
     wl-clipboard # clipboard bridge 
     cliphist  # clipboard
     grimblast # screenshot
+    ollama-cuda
 
 
     # Hardware utils
@@ -291,10 +293,10 @@
     xterm
   ];
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
-  };
+  # services.ollama = {
+  #   enable = true;
+  #   package = pkgs.ollama-cuda;
+  # };
 
 
   xdg.portal = {

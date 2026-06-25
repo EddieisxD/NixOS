@@ -1,15 +1,12 @@
 {
     "workbench.activityBar.location": "top",
-    "workbench.sideBar.location": "right",
-    "window.menuBarVisibility": "compact",
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
-    "workbench.colorTheme": "Hybrid dim",
+    "workbench.colorTheme": "Cursor Dark",
     "files.autoSave": "afterDelay",
     "http.systemCertificatesNode": true,
     "geminicodeassist.project": "optimum-solution-f4lls",
     "geminicodeassist.inlineSuggestions.enableAuto": false,
-    "workbench.statusBar.visible": false,
     "editor.stickyScroll.enabled": false,
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.horizontal": "hidden",
@@ -17,11 +14,22 @@
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
     "editor.lineNumbers": "relative",
-    "workbench.editor.showTabs": "none",
+    "workbench.editor.showTabs": "multiple",
     "editor.fontFamily": "'JetBrainsMono Nerd Font','Droid Sans Mono', monospace",
     "editor.fontLigatures": true,
     "terminal.integrated.fontLigatures.enabled": true,
+    "workbench.browser.showInTitleBar": false,
+    "window.customTitleBarVisibility": "never",
+    "window.titleBarStyle": "native",
+    "update.titleBar": false,
+    "chat.titleBar.signIn.enabled": false,
+    "workbench.editor.titleScrollbarVisibility": "hidden",
+    "window.menuBarVisibility": "hidden",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
-    }
+    },
+    "editor.suggest.showStatusBar": true,
+    "workbench.notifications.showInTitleBar": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.sideBar.location": "right"
 }
