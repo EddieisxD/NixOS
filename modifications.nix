@@ -34,13 +34,14 @@
   # services.power-profiles-daemon.enable = false;
 
   services.tailscale.enable = true;
-  programs.kdeconnect.enable = true;
-  services.syncthing = {
-    enable = true;
-    user = "YOUR_USERNAME";
-    dataDir = "/home/addy/Syncthing";    # Default folder for new synced directories
-    configDir = "/home/addy/.config/syncthing";  # Folder for settings
-  };
+
+  # programs.kdeconnect.enable = true;
+  # services.syncthing = {
+  #   enable = true;
+  #   user = "addy";
+  #   dataDir = "/home/addy/Syncthing";    # Default folder for new synced directories
+  #   configDir = "/home/addy/.config/syncthing";  # Folder for settings
+  # };
   services.fwupd.enable = true;
 
   # services.upower.enable = true;
@@ -87,6 +88,7 @@
   environment.systemPackages = with pkgs; [
     # CLI essentials
     neovim
+    localsend
     git
     ripgrep
     zoxide
