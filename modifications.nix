@@ -42,6 +42,8 @@
     openFirewall = true;
   };
 
+  hardware.uinput.enable = true;
+
   # programs.kdeconnect.enable = true;
   # services.syncthing = {
   #   enable = true;
@@ -96,6 +98,7 @@
     # CLI essentials
     neovim
     localsend
+    moonlight-qt
     git
     ripgrep
     zoxide
@@ -256,6 +259,8 @@
       "render" "video"
       "gamemode"
       "guixbuild"
+      "input"
+      "uinput"
     ];
     shell = pkgs.fish; # explicitly set your shell here
   };
