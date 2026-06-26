@@ -100,7 +100,7 @@
     pkgs.adw-gtk3
     pkgs.adwaita-icon-theme
     pkgs.banana-cursor
-    pkgs.xorg.xrdb
+    pkgs.xrdb
   ];
 
   programs.nvchad = {
