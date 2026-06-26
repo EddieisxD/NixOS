@@ -44,6 +44,10 @@
 
   hardware.uinput.enable = true;
 
+
+  programs.localsend.enable = true;
+  programs.localsend.openFirewall = true;
+
   # programs.kdeconnect.enable = true;
   # services.syncthing = {
   #   enable = true;
